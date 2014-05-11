@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#include "PPPP_API.h"
+#include "PPPPChannelManagement.h"
 
 @interface CamListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
     NSString *nameBufferForAdd;
@@ -20,6 +22,7 @@
 @property (nonatomic, strong) NSString *UIDBufferForAdd;
 @property (nonatomic, strong) NSMutableArray *camList;
 @property (nonatomic, readwrite) int numOfCameras;
+@property  CPPPPChannelManagement* m_PPPPChannelMgt;
 
 - (IBAction)back:(id)sender;
 - (void)sendNameWithNoti:(NSNotification *)noti;

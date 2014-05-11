@@ -19,6 +19,8 @@
 - (void)setName:(NSString *)name;
 - (NSString *)getUID;
 - (void)setUID:(NSString *)uid;
+- (NSString *)getStatus;
+- (void)setStatus:(NSString *)status;
 
 
 @end

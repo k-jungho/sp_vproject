@@ -13,7 +13,10 @@
 
 
 - (NSString *)getName {
-    return name;
+    if (name) {
+        return name;
+    }
+    return @"";
 }
 
 - (void)setName:(NSString *)_name {
@@ -21,11 +24,25 @@
 }
 
 - (NSString *)getUID {
-    return uid;
+    if (uid) {
+        return uid;
+    }
+    return @"";
 }
 
 - (void)setUID:(NSString *)_uid {
     uid = [NSString stringWithString:_uid];
+}
+
+- (NSString *)getStatus {
+    if (status) {
+        return status;
+    }
+    return @"";
+}
+
+- (void)setStatus:(NSString *)_status {
+    status = [NSString stringWithString:_status];
 }
 
 @end

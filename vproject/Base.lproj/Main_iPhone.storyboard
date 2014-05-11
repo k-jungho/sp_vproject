@@ -9,8 +9,8 @@
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Eb0-o6-9p8"/>
-                        <viewControllerLayoutGuide type="bottom" id="Vpe-9u-nX1"/>
+                        <viewControllerLayoutGuide type="top" id="Nnp-jM-SGX"/>
+                        <viewControllerLayoutGuide type="bottom" id="nFT-Fp-EPx"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -103,14 +103,14 @@
                             <outlet property="delegate" destination="TNH-k1-xjL" id="Epq-m6-XVO"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Cam List" id="dEj-yX-bLy">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="zFL-WW-rfC">
+                    <navigationItem key="navigationItem" title="Cam List" id="hTC-bs-apF">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="GTz-1f-N4j">
                             <connections>
-                                <action selector="back:" destination="TNH-k1-xjL" id="Hsw-eH-X15"/>
+                                <action selector="back:" destination="TNH-k1-xjL" id="5Gp-hR-mXu"/>
                             </connections>
                         </barButtonItem>
                         <connections>
-                            <outlet property="leftBarButtonItem" destination="zFL-WW-rfC" id="q7p-cy-yGf"/>
+                            <outlet property="leftBarButtonItem" destination="GTz-1f-N4j" id="v3z-x3-M0H"/>
                         </connections>
                     </navigationItem>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
@@ -127,14 +127,14 @@
             <objects>
                 <viewController storyboardIdentifier="Landscape" useStoryboardIdentifierAsRestorationIdentifier="YES" id="iH1-FE-2P4" customClass="LandscapeCamViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="8pY-ij-PQI"/>
-                        <viewControllerLayoutGuide type="bottom" id="Cvj-NX-kf4"/>
+                        <viewControllerLayoutGuide type="top" id="2ep-WO-XAI"/>
+                        <viewControllerLayoutGuide type="bottom" id="hI4-Uj-0ci"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lg2-2s-aSJ">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jvz-Nd-bU6">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jvz-Nd-bU6">
                                 <rect key="frame" x="20" y="20" width="35" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Back">
@@ -144,7 +144,7 @@
                                     <action selector="back:" destination="iH1-FE-2P4" eventType="touchUpInside" id="T0u-jb-84M"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Toh-5M-IzO">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Toh-5M-IzO">
                                 <rect key="frame" x="391" y="20" width="69" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="to Portrait">
@@ -156,12 +156,6 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Jvz-Nd-bU6" firstAttribute="top" secondItem="lg2-2s-aSJ" secondAttribute="top" constant="20" symbolic="YES" id="Uvf-So-O0N"/>
-                            <constraint firstItem="Jvz-Nd-bU6" firstAttribute="leading" secondItem="lg2-2s-aSJ" secondAttribute="leading" constant="20" symbolic="YES" id="Yzu-qU-RzM"/>
-                            <constraint firstAttribute="trailing" secondItem="Toh-5M-IzO" secondAttribute="trailing" constant="20" symbolic="YES" id="Z0R-mO-qIw"/>
-                            <constraint firstItem="Jvz-Nd-bU6" firstAttribute="baseline" secondItem="Toh-5M-IzO" secondAttribute="baseline" id="erR-JZ-DAc"/>
-                        </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" id="PGo-Wc-T86"/>
@@ -176,8 +170,8 @@
             <objects>
                 <viewController storyboardIdentifier="SetNameForAddCamera" id="WJC-go-G5D" customClass="SetNameForAddCameraViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Y7o-hH-lf4"/>
-                        <viewControllerLayoutGuide type="bottom" id="s4K-gX-yC0"/>
+                        <viewControllerLayoutGuide type="top" id="qHM-q2-czx"/>
+                        <viewControllerLayoutGuide type="bottom" id="Pex-Pg-1se"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="GLu-CF-qj9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -278,8 +272,8 @@
             <objects>
                 <viewController storyboardIdentifier="RegisterCamForAddCamera" id="z71-1B-iFv" customClass="RegisterCamForAddCameraViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="F0K-bU-G9R"/>
-                        <viewControllerLayoutGuide type="bottom" id="014-8n-DIU"/>
+                        <viewControllerLayoutGuide type="top" id="IfT-0M-3hX"/>
+                        <viewControllerLayoutGuide type="bottom" id="kax-ww-RTa"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="zin-6F-jFg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -402,8 +396,8 @@
             <objects>
                 <viewController id="EXe-he-jlH" customClass="QRScannerViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="cv8-lW-Z13"/>
-                        <viewControllerLayoutGuide type="bottom" id="WWF-7L-Fmf"/>
+                        <viewControllerLayoutGuide type="top" id="sMo-oy-03O"/>
+                        <viewControllerLayoutGuide type="bottom" id="6zX-om-pS5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="urW-wD-3T0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -455,8 +449,8 @@
             <objects>
                 <viewController storyboardIdentifier="ConfirmInfoForAddCamera" id="x38-8I-UqH" customClass="ConfirmInfoForAddCameraViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="kly-TQ-Cx4"/>
-                        <viewControllerLayoutGuide type="bottom" id="HTA-9g-KeZ"/>
+                        <viewControllerLayoutGuide type="top" id="Imf-fF-QvL"/>
+                        <viewControllerLayoutGuide type="bottom" id="ahm-dp-NNh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="44V-Pz-4r2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -576,90 +570,173 @@
             <objects>
                 <viewController storyboardIdentifier="Portrait" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fEP-5V-po0" customClass="PortraitCamViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="vFc-Os-jUi"/>
-                        <viewControllerLayoutGuide type="bottom" id="5OO-es-Cmy"/>
+                        <viewControllerLayoutGuide type="top" id="upd-XD-RHK"/>
+                        <viewControllerLayoutGuide type="bottom" id="7dx-rQ-Meh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Vln-XZ-ICy">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="itL-ws-3Kl">
-                                <rect key="frame" x="0.0" y="52" width="320" height="320"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FyS-8z-S0A">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vrX-Cq-jtU">
-                                <rect key="frame" x="20" y="20" width="35" height="30"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="foH-BD-FQ4">
+                                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q6X-Bk-laZ">
+                                        <rect key="frame" x="391" y="20" width="69" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="to Portrait">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="changeOrientation:" destination="fEP-5V-po0" eventType="touchUpInside" id="3mH-iz-N0Q"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q8c-rv-Zpe">
+                                <rect key="frame" x="-20" y="0.0" width="360" height="480"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Back">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="back:" destination="fEP-5V-po0" eventType="touchUpInside" id="cxj-bd-8bl"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OEy-rn-A3Z">
-                                <rect key="frame" x="139" y="24" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a9w-iD-CjZ">
-                                <rect key="frame" x="206" y="20" width="94" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="to Landscape">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="toLandscape:" destination="fEP-5V-po0" eventType="touchUpInside" id="WoC-OK-qH3"/>
-                                    <segue destination="iH1-FE-2P4" kind="modal" id="mkr-Hh-ayf"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5g2-Jo-itM">
-                                <rect key="frame" x="133" y="380" width="55" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Capture">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="starVideo:" destination="fEP-5V-po0" eventType="touchUpInside" id="jYk-V0-Al2"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QQA-Dq-kqS">
-                                <rect key="frame" x="20" y="430" width="141" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="change to mic mode">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IMg-Xn-Hje">
-                                <rect key="frame" x="256" y="380" width="44" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Album">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kwz-Zh-Wcq">
-                                <rect key="frame" x="265" y="430" width="35" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Feed">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nqe-pa-t8N">
-                                <rect key="frame" x="20" y="380" width="57" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Settings">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="itL-ws-3Kl">
+                                        <rect key="frame" x="20" y="64" width="320" height="240"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BkW-6Z-Z92">
+                                        <rect key="frame" x="20" y="20" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <items>
+                                            <navigationItem id="hSa-z0-W1j">
+                                                <barButtonItem key="backBarButtonItem" title="Back" id="gSA-79-qsC">
+                                                    <connections>
+                                                        <action selector="back:" destination="fEP-5V-po0" id="phs-dl-X6a"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                                <barButtonItem key="rightBarButtonItem" title="to Landscape" id="w8H-sV-bVh">
+                                                    <connections>
+                                                        <action selector="changeOrientation:" destination="fEP-5V-po0" id="K4t-FW-dKk"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                                <connections>
+                                                    <outlet property="leftBarButtonItem" destination="gSA-79-qsC" id="iLR-Ej-vwJ"/>
+                                                </connections>
+                                            </navigationItem>
+                                        </items>
+                                    </navigationBar>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5g2-Jo-itM">
+                                        <rect key="frame" x="40" y="354" width="55" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Capture">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="capture:" destination="fEP-5V-po0" eventType="touchUpInside" id="xgx-1Q-RXe"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QQA-Dq-kqS">
+                                        <rect key="frame" x="40" y="430" width="57" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="mic">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="mic:" destination="fEP-5V-po0" eventType="touchUpInside" id="F62-2m-qwy"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cv8-z6-DtX">
+                                        <rect key="frame" x="130" y="430" width="100" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="speaker">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="speaker:" destination="fEP-5V-po0" eventType="touchUpInside" id="mC6-ar-Hy4"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IMg-Xn-Hje">
+                                        <rect key="frame" x="158" y="392" width="44" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Album">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kwz-Zh-Wcq">
+                                        <rect key="frame" x="285" y="430" width="35" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Feed">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="feed:" destination="fEP-5V-po0" eventType="touchUpInside" id="MyA-KT-VhG"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nqe-pa-t8N">
+                                        <rect key="frame" x="40" y="392" width="57" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Settings">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7pM-hI-nMS">
+                                        <rect key="frame" x="127" y="354" width="107" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Play">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="play:" destination="fEP-5V-po0" eventType="touchUpInside" id="MLU-7p-GJw"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sdo-s1-3fp">
+                                        <rect key="frame" x="258" y="354" width="62" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Set Base">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="setBase:" destination="fEP-5V-po0" eventType="touchUpInside" id="BN7-Qv-h9u"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfm-Ib-RMD">
+                                        <rect key="frame" x="242" y="392" width="78" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Go to Base">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="goToBase:" destination="fEP-5V-po0" eventType="touchUpInside" id="8cA-Mx-jQ8"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="W1R-n1-DiD"/>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
-                        <outlet property="playView" destination="itL-ws-3Kl" id="wkh-ig-ilI"/>
+                        <outlet property="feedButton" destination="kwz-Zh-Wcq" id="exS-OG-y0S"/>
+                        <outlet property="landscape" destination="FyS-8z-S0A" id="Ppv-pD-cXK"/>
+                        <outlet property="landscapePlayView" destination="foH-BD-FQ4" id="ADK-TA-d7V"/>
+                        <outlet property="micButton" destination="QQA-Dq-kqS" id="YpN-ba-nQC"/>
+                        <outlet property="navigationBar" destination="BkW-6Z-Z92" id="m4j-pX-kCy"/>
+                        <outlet property="playButton" destination="7pM-hI-nMS" id="fBM-Ml-pAn"/>
+                        <outlet property="portrait" destination="q8c-rv-Zpe" id="O6i-q7-D5A"/>
+                        <outlet property="portraitPlayView" destination="itL-ws-3Kl" id="eeZ-0h-WeX"/>
+                        <outlet property="speakerButton" destination="cv8-z6-DtX" id="lGW-Hr-4h5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hZI-x9-G9Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -669,7 +746,6 @@
         <!--Navigation Controller-->
         <scene sceneID="ooK-Eu-u01">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ptS-lN-xO6" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GUA-lk-XTm" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
@@ -682,6 +758,7 @@
                         <segue destination="TNH-k1-xjL" kind="relationship" relationship="rootViewController" id="swk-eb-FSV"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ptS-lN-xO6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="61" y="-62"/>
         </scene>
@@ -690,8 +767,8 @@
             <objects>
                 <viewController id="iLP-rO-LYA" customClass="LandingViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="gwI-Ua-IMD"/>
-                        <viewControllerLayoutGuide type="bottom" id="ULr-18-Ouh"/>
+                        <viewControllerLayoutGuide type="top" id="OfG-4A-O8s"/>
+                        <viewControllerLayoutGuide type="bottom" id="zrD-rj-TLv"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="szB-aD-B79">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>

@@ -12,6 +12,7 @@
 #include "APICommon.h"
 #import "PPPPDefine.h"
 #import "obj_common.h"
+#import "objc/message.h"
 
 @interface PortraitCamViewController ()
 @property (nonatomic, retain) NSCondition* m_PPPPChannelMgtCondition;
@@ -20,7 +21,7 @@
 
 @implementation PortraitCamViewController
 
-@synthesize backFromLandscape, name, uid;
+@synthesize isInitialized, isPortrait, isFeeding, isMicOn, isSpeakerOn, isPlaying, name, uid, timer, feedButton, micButton, speakerButton, playButton, portrait, landscape;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,13 +32,20 @@
     return self;
 }
 
-- (void)backFromLandscapeWithNoti:(NSNotification *)noti {
-    backFromLandscape = YES;
+- (UIBarPosition)positionForBar:(id<UIBarPositioning>)bar {
+    return UIBarPositionTopAttached;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(orientationChanged:)
+                                                 name:UIDeviceOrientationDidChangeNotification
+                                               object:nil];
+    
+    self.navigationBar.delegate = self;
 	// Do any additional setup after loading the view.
     _m_PPPPChannelMgtCondition = [[NSCondition alloc] init];
     _m_PPPPChannelMgt = new CPPPPChannelManagement();
@@ -45,16 +53,18 @@
     
     InitAudioSession();
     
-    backFromLandscape = NO;
-    NSNotificationCenter *notiCenter = [NSNotificationCenter defaultCenter];
-    [notiCenter addObserver:self selector:@selector(backFromLandscapeWithNoti:) name:@"backFromLandscape" object:nil];
+    isInitialized = YES;
+    isPortrait = YES;
+    isFeeding = NO;
+    isMicOn = NO;
+    isSpeakerOn = YES;
+
+    [portrait setHidden:NO];
+    [landscape setHidden:YES];
     
-    
-    
-    
-    PPPP_Initialize((char*)[@"EFGBFFBJKDJBGNJBEBGMFOEIHPNFHGNOGHFBBOCPAJJOLDLNDBAHCOOPGJLMJGLKAOMPLMDINEIOLMFAFCPJJGAM" UTF8String]);//Input your company server address
-    st_PPPP_NetInfo NetInfo;
-    PPPP_NetworkDetect(&NetInfo, 0);
+//    PPPP_Initialize((char*)[@"EFGBFFBJKDJBGNJBEBGMFOEIHPNFHGNOGHFBBOCPAJJOLDLNDBAHCOOPGJLMJGLKAOMPLMDINEIOLMFAFCPJJGAM" UTF8String]);//Input your company server address
+//    st_PPPP_NetInfo NetInfo;
+//    PPPP_NetworkDetect(&NetInfo, 0);
     
     [_m_PPPPChannelMgtCondition lock];
     if (_m_PPPPChannelMgt == NULL) {
@@ -63,7 +73,8 @@
     }
     _m_PPPPChannelMgt->StopAll();
     dispatch_async(dispatch_get_main_queue(),^{
-        _playView.image = nil;
+        _portraitPlayView.image = nil;
+        _landscapePlayView.image = nil;
     });
     
     self.title = [NSString stringWithString:name];
@@ -84,8 +95,6 @@
 
 - (void)viewDidUnload
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"backFromLandscape" object:nil];
-    
     [super viewDidUnload];
 }
 
@@ -101,21 +110,128 @@
 //    }
 //}
 
-- (void)viewDidAppear:(BOOL)animated {
-    if (backFromLandscape) {
-        backFromLandscape = NO;
-        [self.presentingViewController dismissViewControllerAnimated:NO completion:nil];
+//- (NSUInteger)supportedInterfaceOrientations {
+//    if (isPortrait) {
+//        return UIInterfaceOrientationMaskPortrait;
+//        [portrait setHidden:NO];
+//        [landscape setHidden:YES];
+//        
+//    }
+//    else {
+//        return UIInterfaceOrientationMaskLandscape;
+//        [portrait setHidden:YES];
+//        [landscape setHidden:NO];
+//    }
+//}
+//
+//- (BOOL)shouldAutorotate
+//{
+//    return YES;
+//}
+
+-(BOOL)shouldAutorotate
+{
+    if( isInitialized == NO ) {
+        return UIInterfaceOrientationMaskPortrait;
+    }
+    if (isPortrait) {
+        return UIInterfaceOrientationMaskPortrait;
+    }
+    else {
+        return UIInterfaceOrientationMaskLandscape;
     }
 }
 
-- (IBAction)toLandscape:(id)sender {
-//    NSString * storyboardName = @"Main_iPhone";
-//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
-//    LandscapeCamViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"Landscape"];
-//    [self.navigationController pushViewController:vc animated:NO];
+-(NSUInteger)supportedInterfaceOrientations
+{
+    if( isInitialized == NO ) {
+        return UIInterfaceOrientationMaskPortrait;
+    }
+    if (isPortrait) {
+        return UIInterfaceOrientationMaskPortrait;
+    }
+    else {
+        return UIInterfaceOrientationMaskLandscape;
+    }
+}
+//
+//- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
+//{
+//    if( isInitialized == NO ) {
+//        return UIInterfaceOrientationPortrait;
+//    }
+//    if (isPortrait) {
+//        return UIInterfaceOrientationPortrait;
+//    }
+//    else {
+//        return UIInterfaceOrientationLandscapeRight;
+//    }
+//}
+
+- (void)orientationChanged:(NSNotification *)notification {
+//    if (isPortrait) {
+//        if ( [portrait isHidden ] == YES )
+//            [portrait setHidden:NO];
+//        if ( [landscape isHidden ] == NO )
+//            [landscape setHidden:YES];
+//    }
+//    else {
+//        if ( [portrait isHidden ] == NO )
+//            [portrait setHidden:YES];
+//        if ( [landscape isHidden ] == YES )
+//            [landscape setHidden:NO];
+//    }
+}
+
+- (IBAction)changeOrientation:(id)sender {
+    isPortrait = !isPortrait;
+//    if (isPortrait) {
+//        objc_msgSend([UIDevice currentDevice], @selector(setOrientation:), UIInterfaceOrientationPortrait);
+//    }
+//    else {
+//        objc_msgSend([UIDevice currentDevice], @selector(setOrientation:), UIInterfaceOrientationLandscapeLeft);
+//    }
+    
+    if ([[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)])
+    {
+        
+        if (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation))
+        {
+            objc_msgSend([UIDevice currentDevice],@selector(setOrientation:),UIInterfaceOrientationLandscapeLeft );
+            [landscape setHidden:NO];
+            [portrait setHidden:YES];
+        }else
+        {
+            objc_msgSend([UIDevice currentDevice], @selector(setOrientation:), UIInterfaceOrientationPortrait);
+            [portrait setHidden:NO];
+            [landscape setHidden:YES];
+        }
+        
+    }
 }
 
 - (IBAction)back:(id)sender {
+    if (isMicOn) {
+        _m_PPPPChannelMgt->StopPPPPTalk([_cameraID UTF8String]);
+        [micButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        isMicOn = NO;
+    }
+    if (isSpeakerOn) {
+        _m_PPPPChannelMgt->StopPPPPAudio([_cameraID UTF8String]);
+        [speakerButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        isSpeakerOn = NO;
+    }
+    if (isPlaying) {
+        
+        _m_PPPPChannelMgt->StopPPPPLivestream([_cameraID UTF8String]);
+        dispatch_async(dispatch_get_main_queue(),^{
+            _portraitPlayView.image = nil;
+            _landscapePlayView.image = nil;
+        });
+        [playButton setTitle:@"Play" forState:UIControlStateNormal];
+        isPlaying = NO;
+    }
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -133,7 +249,8 @@
     }
     _m_PPPPChannelMgt->StopAll();
     dispatch_async(dispatch_get_main_queue(),^{
-        _playView.image = nil;
+        _portraitPlayView.image = nil;
+        _landscapePlayView.image = nil;
     });
     
     if ([(UIButton*)sender tag] == 10) {
@@ -153,7 +270,9 @@
             _m_PPPPChannelMgt->StopPPPPLivestream([_cameraID UTF8String]);
             return;
         }
-        
+        _m_PPPPChannelMgt->StartPPPPAudio([_cameraID UTF8String]);
+        [speakerButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        isSpeakerOn = YES;
     }
 }
 
@@ -165,7 +284,8 @@
     _m_PPPPChannelMgt->StopPPPPAudio([_cameraID UTF8String]);
     _m_PPPPChannelMgt->StopPPPPLivestream([_cameraID UTF8String]);
     dispatch_async(dispatch_get_main_queue(),^{
-        _playView.image = nil;
+        _portraitPlayView.image = nil;
+        _landscapePlayView.image = nil;
     });
 }
 
@@ -182,7 +302,8 @@
     _m_PPPPChannelMgt->StopAll();
     [_m_PPPPChannelMgtCondition unlock];
     dispatch_async(dispatch_get_main_queue(),^{
-        _playView.image = nil;
+        _portraitPlayView.image = nil;
+        _landscapePlayView.image = nil;
     });
     
 }
@@ -191,9 +312,137 @@
     _m_PPPPChannelMgt->Start([camID UTF8String], [@"admin" UTF8String], [@"888888" UTF8String]);
 }
 
+- (IBAction)feed:(id)sender {
+//    if (isFeeding) {
+//        _m_PPPPChannelMgt->PTZ_Control([_cameraID UTF8String], CMD_PTZ_LEFT_RIGHT_STOP);
+//        isFeeding = NO;
+//    }
+//    else {
+//        
+//        isFeeding = YES;
+//    }
+    
+    timer = [NSTimer scheduledTimerWithTimeInterval:0.8f
+                                                          target:self
+                                                        selector:@selector(activateFeed:)
+                                                        userInfo:nil
+                                                         repeats:YES];
+//    for(int i = 0; i < 38; i++) {
+//        _m_PPPPChannelMgt->PTZ_Control([_cameraID UTF8String], CMD_PTZ_LEFT);
+//    }
+    
+//    _m_PPPPChannelMgt->PTZ_Control([_cameraID UTF8String], CMD_PTZ_LEFT_RIGHT);
+    //_m_PPPPChannelMgt->PTZ_Control([_cameraID UTF8String], CMD_PTZ_CENTER);
+    //_m_PPPPChannelMgt->PTZ_Control([_cameraID UTF8String], CMD_PTZ_LEFT);
+    //_m_PPPPChannelMgt->PTZ_Control([_cameraID UTF8String], CMD_PTZ_PREFAB_BIT_SETE);
+    //_m_PPPPChannelMgt->PTZ_Control([_cameraID UTF8String], CMD_PTZ_PREFAB_BIT_SETF);
+//    timer = [NSTimer scheduledTimerWithTimeInterval:11.58f*5
+//                                             target:self
+//                                           selector:@selector(activateFeed:)
+//                                           userInfo:nil
+//                                            repeats:NO];
+//    
+    [feedButton setAlpha:0.0f];
+}
 
+- (void)activateFeed:(NSTimer *)calledTimer {
+    static int counter = 0;
+    _m_PPPPChannelMgt->PTZ_Control([_cameraID UTF8String], CMD_PTZ_RIGHT);
+    if (++counter == 18) {
+        if (timer != nil) {
+            [timer invalidate];
+            timer = nil;
+        }
+        //_m_PPPPChannelMgt->PTZ_Control([_cameraID UTF8String], CMD_PTZ_RIGHT_STOP);
+        [feedButton setAlpha:1.0f];
+        counter = 0;
+    }
+    NSLog(@"%d", counter);
+//    if (timer != nil) {
+//        [timer invalidate];
+//        timer = nil;
+//    }
+//    _m_PPPPChannelMgt->PTZ_Control([_cameraID UTF8String], CMD_PTZ_LEFT_RIGHT_STOP);
+//    [feedButton setAlpha:1.0f];
+}
 
+- (IBAction)mic:(id)sender {
+    if (isMicOn) {
+        _m_PPPPChannelMgt->StopPPPPTalk([_cameraID UTF8String]);
+        //[micButton setTitle:@"Mic Off" forState:UIControlStateNormal];
+        [micButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        isMicOn = NO;
+    }
+    else {
+        _m_PPPPChannelMgt->StartPPPPTalk([_cameraID UTF8String]);
+        //[micButton setTitle:@"Mic On" forState:UIControlStateNormal];
+        [micButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        isMicOn = YES;
+    }
+}
 
+- (IBAction)speaker:(id)sender {
+    if (isSpeakerOn) {
+        _m_PPPPChannelMgt->StopPPPPAudio([_cameraID UTF8String]);
+        //[speakerButton setTitle:@"Speaker Off" forState:UIControlStateNormal];
+        [speakerButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        isSpeakerOn = NO;
+    }
+    else {
+        _m_PPPPChannelMgt->StartPPPPAudio([_cameraID UTF8String]);
+        //[speakerButton setTitle:@"Speaker On" forState:UIControlStateNormal];
+        [speakerButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        isSpeakerOn = YES;
+    }
+}
+
+- (IBAction)play:(id)sender {
+    if (isPlaying) {
+        if (isMicOn) {
+            _m_PPPPChannelMgt->StopPPPPTalk([_cameraID UTF8String]);
+            [micButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+            isMicOn = NO;
+        }
+        if (isSpeakerOn) {
+            _m_PPPPChannelMgt->StopPPPPAudio([_cameraID UTF8String]);
+            [speakerButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+            isSpeakerOn = NO;
+        }
+        _m_PPPPChannelMgt->StopPPPPLivestream([_cameraID UTF8String]);
+        dispatch_async(dispatch_get_main_queue(),^{
+            _portraitPlayView.image = nil;
+            _landscapePlayView.image = nil;
+        });
+        [playButton setTitle:@"Play" forState:UIControlStateNormal];
+        isPlaying = NO;
+    }
+    else {
+        if (_m_PPPPChannelMgt != NULL) {
+            if (_m_PPPPChannelMgt->StartPPPPLivestream([_cameraID UTF8String], 10, self) == 0) {
+                _m_PPPPChannelMgt->StopPPPPAudio([_cameraID UTF8String]);
+                _m_PPPPChannelMgt->StopPPPPLivestream([_cameraID UTF8String]);
+                return;
+            }
+            _m_PPPPChannelMgt->StartPPPPAudio([_cameraID UTF8String]);
+            [speakerButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+            [playButton setTitle:@"Stop" forState:UIControlStateNormal];
+            isSpeakerOn = YES;
+        }
+        isPlaying = YES;
+    }
+}
+
+- (IBAction)capture:(id)sender {
+    _m_PPPPChannelMgt->Snapshot([_cameraID UTF8String]);
+}
+
+- (IBAction)setBase:(id)sender {
+    _m_PPPPChannelMgt->PTZ_Control([_cameraID UTF8String], CMD_PTZ_PREFAB_BIT_SET0);
+}
+
+- (IBAction)goToBase:(id)sender {
+    _m_PPPPChannelMgt->PTZ_Control([_cameraID UTF8String], CMD_PTZ_PREFAB_BIT_RUN0);
+}
 
 //ImageNotifyProtocol
 - (void) ImageNotify: (UIImage *)image timestamp: (NSInteger)timestamp DID:(NSString *)did{
@@ -206,6 +455,7 @@
 - (void) H264Data: (Byte*) h264Frame length: (int) length type: (int) type timestamp: (NSInteger) timestamp{
     
 }
+
 //PPPPStatusDelegate
 - (void) PPPPStatus: (NSString*) strDID statusType:(NSInteger) statusType status:(NSInteger) status{
     NSString* strPPPPStatus;
@@ -251,7 +501,8 @@
 - (void) refreshImage:(UIImage* ) image{
     if (image != nil) {
         dispatch_async(dispatch_get_main_queue(),^{
-            _playView.image = image;
+            _portraitPlayView.image = image;
+            _landscapePlayView.image = image;
         });
     }
 }

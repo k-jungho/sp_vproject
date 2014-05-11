@@ -10,6 +10,14 @@
 #import "CamListTableCell.h"
 #import "PortraitCamViewController.h"
 #import "CameraInfo.h"
+#include "APICommon.h"
+#import "PPPPDefine.h"
+#import "obj_common.h"
+
+@interface CamListViewController ()
+@property (nonatomic, retain) NSCondition* m_PPPPChannelMgtCondition;
+@property (nonatomic, retain) NSString* cameraID;
+@end
 
 @implementation CamListViewController
 
@@ -53,6 +61,33 @@
     [notiCenter addObserver:self selector:@selector(sendNameWithNoti:) name:@"sendName" object:nil];
     [notiCenter addObserver:self selector:@selector(sendUIDWithNoti:) name:@"sendUID" object:nil];
     [notiCenter addObserver:self selector:@selector(addNewCameraWithNoti:) name:@"addNewCamera" object:nil];
+    
+    _m_PPPPChannelMgtCondition = [[NSCondition alloc] init];
+    _m_PPPPChannelMgt = new CPPPPChannelManagement();
+    _m_PPPPChannelMgt->pCameraViewController = self;
+    
+    PPPP_Initialize((char*)[@"EFGBFFBJKDJBGNJBEBGMFOEIHPNFHGNOGHFBBOCPAJJOLDLNDBAHCOOPGJLMJGLKAOMPLMDINEIOLMFAFCPJJGAM" UTF8String]);//Input your company server address
+    st_PPPP_NetInfo NetInfo;
+    PPPP_NetworkDetect(&NetInfo, 0);
+    
+    [_m_PPPPChannelMgtCondition lock];
+    if (_m_PPPPChannelMgt == NULL) {
+        [_m_PPPPChannelMgtCondition unlock];
+        return;
+    }
+    _m_PPPPChannelMgt->StopAll();
+        
+    for (int i = 0; i < numOfCameras; i++) {
+        CameraInfo *cameraInfo = [camList objectAtIndex:i];
+        [self performSelector:@selector(startPPPP:) withObject:[cameraInfo getUID]];
+    }
+    
+    [_m_PPPPChannelMgtCondition unlock];
+    
+}
+
+- (void) startPPPP:(NSString*) camID{
+    _m_PPPPChannelMgt->Start([camID UTF8String], [@"admin" UTF8String], [@"888888" UTF8String]);
 }
 
 - (void)viewDidUnload
@@ -87,7 +122,7 @@
     }
     cell.name.text = [NSString stringWithString:[cameraInfo getName]];
     cell.uid.text = [NSString stringWithString:[cameraInfo getUID]];
-    
+    cell.status.text = [NSString stringWithString:[cameraInfo getStatus]];
     
 //    static NSString *simpleTableIdentifier = @"CamCell";
 //    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
@@ -140,6 +175,58 @@
     [[NSUserDefaults standardUserDefaults] setValue:UIDBufferForAdd forKey:[NSString stringWithFormat:@"%@%d", @"cam_uid", numOfCameras]];
     
     [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+//PPPPStatusDelegate
+- (void) PPPPStatus: (NSString*) strDID statusType:(NSInteger) statusType status:(NSInteger) status{
+    NSString* strPPPPStatus;
+    switch (status) {
+        case PPPP_STATUS_UNKNOWN:
+            strPPPPStatus = NSLocalizedStringFromTable(@"PPPPStatusUnknown", @STR_LOCALIZED_FILE_NAME, nil);
+            break;
+        case PPPP_STATUS_CONNECTING:
+            strPPPPStatus = NSLocalizedStringFromTable(@"PPPPStatusConnecting", @STR_LOCALIZED_FILE_NAME, nil);
+            break;
+        case PPPP_STATUS_INITIALING:
+            strPPPPStatus = NSLocalizedStringFromTable(@"PPPPStatusInitialing", @STR_LOCALIZED_FILE_NAME, nil);
+            break;
+        case PPPP_STATUS_CONNECT_FAILED:
+            strPPPPStatus = NSLocalizedStringFromTable(@"PPPPStatusConnectFailed", @STR_LOCALIZED_FILE_NAME, nil);
+            break;
+        case PPPP_STATUS_DISCONNECT:
+            strPPPPStatus = NSLocalizedStringFromTable(@"PPPPStatusDisconnected", @STR_LOCALIZED_FILE_NAME, nil);
+            break;
+        case PPPP_STATUS_INVALID_ID:
+            strPPPPStatus = NSLocalizedStringFromTable(@"PPPPStatusInvalidID", @STR_LOCALIZED_FILE_NAME, nil);
+            break;
+        case PPPP_STATUS_ON_LINE:
+            strPPPPStatus = NSLocalizedStringFromTable(@"PPPPStatusOnline", @STR_LOCALIZED_FILE_NAME, nil);
+            break;
+        case PPPP_STATUS_DEVICE_NOT_ON_LINE:
+            strPPPPStatus = NSLocalizedStringFromTable(@"CameraIsNotOnline", @STR_LOCALIZED_FILE_NAME, nil);
+            break;
+        case PPPP_STATUS_CONNECT_TIMEOUT:
+            strPPPPStatus = NSLocalizedStringFromTable(@"PPPPStatusConnectTimeout", @STR_LOCALIZED_FILE_NAME, nil);
+            break;
+        case PPPP_STATUS_INVALID_USER_PWD:
+            strPPPPStatus = NSLocalizedStringFromTable(@"PPPPStatusInvaliduserpwd", @STR_LOCALIZED_FILE_NAME, nil);
+            break;
+        default:
+            strPPPPStatus = NSLocalizedStringFromTable(@"PPPPStatusUnknown", @STR_LOCALIZED_FILE_NAME, nil);
+            break;
+    }
+    
+    for (int i = 0; i < numOfCameras; i++) {
+        CameraInfo *cameraInfo = [camList objectAtIndex:i];
+        
+        if ([[cameraInfo getUID] isEqualToString:strDID]) {
+            [cameraInfo setStatus:strPPPPStatus];
+            [tableView reloadData];
+            break;
+        }
+    }
+    
+    NSLog(@"PPPPStatus  %@",strPPPPStatus);
 }
 
 @end
