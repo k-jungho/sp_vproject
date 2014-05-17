@@ -928,6 +928,7 @@
 		041D4ECA190C138A00C3ED93 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -935,23 +936,16 @@
 				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "vproject/vproject-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/Lib/ios/Release-iphoneos/ffmpeg2/armv7s/include\"",
-					"\"$(SRCROOT)/Lib/ios/Release-iphoneos/ffmpeg2/armv7/include\"",
-					"\"$(SRCROOT)/Lib/ios/Release-iphoneos/ffmpeg2/universal/include\"",
-					"\"$(SRCROOT)/Lib/ios/Release-iphoneos/ffmpeg2/i386/include\"",
-				);
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Lib/ios/Release-iphoneos/ffmpeg2/ARM/include\"";
 				INFOPLIST_FILE = "vproject/vproject-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
-					"\"$(SRCROOT)/Lib/ios/Release-iphoneos/ffmpeg2/armv7/lib\"",
+					"\"$(SRCROOT)/Lib/ios/Release-iphoneos/ffmpeg2/ARM/lib\"",
 					"\"$(SRCROOT)/Lib/ios/Release-iphoneos\"",
-					"\"$(SRCROOT)/Lib/ios/Release-iphoneos/ffmpeg2/armv7s/lib\"",
-					"\"$(SRCROOT)/Lib/ios/Release-iphoneos/ffmpeg2/i386/lib\"",
-					"\"$(SRCROOT)/Lib/ios/Release-iphoneos/ffmpeg2/universal/lib\"",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				VALID_ARCHS = "arm64 armv7 armv7s";
+				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -959,6 +953,7 @@
 		041D4ECB190C138A00C3ED93 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -966,23 +961,16 @@
 				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "vproject/vproject-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/Lib/ios/Release-iphoneos/ffmpeg2/armv7s/include\"",
-					"\"$(SRCROOT)/Lib/ios/Release-iphoneos/ffmpeg2/armv7/include\"",
-					"\"$(SRCROOT)/Lib/ios/Release-iphoneos/ffmpeg2/universal/include\"",
-					"\"$(SRCROOT)/Lib/ios/Release-iphoneos/ffmpeg2/i386/include\"",
-				);
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Lib/ios/Release-iphoneos/ffmpeg2/ARM/include\"";
 				INFOPLIST_FILE = "vproject/vproject-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
-					"\"$(SRCROOT)/Lib/ios/Release-iphoneos/ffmpeg2/armv7/lib\"",
+					"\"$(SRCROOT)/Lib/ios/Release-iphoneos/ffmpeg2/ARM/lib\"",
 					"\"$(SRCROOT)/Lib/ios/Release-iphoneos\"",
-					"\"$(SRCROOT)/Lib/ios/Release-iphoneos/ffmpeg2/armv7s/lib\"",
-					"\"$(SRCROOT)/Lib/ios/Release-iphoneos/ffmpeg2/i386/lib\"",
-					"\"$(SRCROOT)/Lib/ios/Release-iphoneos/ffmpeg2/universal/lib\"",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				VALID_ARCHS = "arm64 armv7 armv7s";
+				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

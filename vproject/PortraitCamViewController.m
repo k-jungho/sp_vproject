@@ -347,7 +347,7 @@
 
 - (void)activateFeed:(NSTimer *)calledTimer {
     static int counter = 0;
-    _m_PPPPChannelMgt->PTZ_Control([_cameraID UTF8String], CMD_PTZ_RIGHT);
+    _m_PPPPChannelMgt->PTZ_Control([_cameraID UTF8String], CMD_PTZ_DOWN);
     if (++counter == 18) {
         if (timer != nil) {
             [timer invalidate];

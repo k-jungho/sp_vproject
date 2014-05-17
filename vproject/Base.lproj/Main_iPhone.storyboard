@@ -858,7 +858,7 @@
                                 <rect key="frame" x="23" y="314" width="190" height="16"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vVL-rM-GZ2">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vVL-rM-GZ2">
                                 <rect key="frame" x="231" y="289" width="66" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="picture.png">
@@ -871,7 +871,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="zrD-rj-TLv" firstAttribute="top" secondItem="vVL-rM-GZ2" secondAttribute="bottom" constant="125" id="A77-eS-Nis"/>
                             <constraint firstAttribute="trailing" secondItem="Omv-mp-zxV" secondAttribute="trailing" constant="23" id="D4y-ZD-ZOA"/>
                             <constraint firstItem="zrD-rj-TLv" firstAttribute="top" secondItem="Omv-mp-zxV" secondAttribute="bottom" constant="23" id="inf-4e-2RF"/>
                         </constraints>
@@ -902,6 +901,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="9sj-TC-evc"/>
+        <segue reference="OEB-6F-hXz"/>
     </inferredMetricsTieBreakers>
 </document>
