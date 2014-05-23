@@ -104,6 +104,29 @@
 		048FF76D191C053000E7AC3B /* picture.png in Resources */ = {isa = PBXBuildFile; fileRef = 048FF769191C053000E7AC3B /* picture.png */; };
 		048FF76F191C0B7600E7AC3B /* imagebutton_002.png in Resources */ = {isa = PBXBuildFile; fileRef = 048FF76E191C0B7600E7AC3B /* imagebutton_002.png */; };
 		048FF772191DF7DA00E7AC3B /* CameraInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 048FF771191DF7DA00E7AC3B /* CameraInfo.m */; };
+		04F247CA192EE1C4005875A7 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F247C9192EE1C4005875A7 /* camera.png */; };
+		04F247D1192EE355005875A7 /* mic_equ_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F247CB192EE355005875A7 /* mic_equ_off.png */; };
+		04F247D2192EE355005875A7 /* mic_equ_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F247CC192EE355005875A7 /* mic_equ_on.png */; };
+		04F247D3192EE355005875A7 /* volume_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F247CD192EE355005875A7 /* volume_off.png */; };
+		04F247D4192EE355005875A7 /* volume_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F247CE192EE355005875A7 /* volume_on.png */; };
+		04F247D5192EE355005875A7 /* volume_toggle_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F247CF192EE355005875A7 /* volume_toggle_off.png */; };
+		04F247D6192EE355005875A7 /* volume_toggle_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F247D0192EE355005875A7 /* volume_toggle_on.png */; };
+		04F247D9192EE5B9005875A7 /* mic_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F247D7192EE5B9005875A7 /* mic_off.png */; };
+		04F247DA192EE5B9005875A7 /* mic_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F247D8192EE5B9005875A7 /* mic_on.png */; };
+		04F247E4192EE719005875A7 /* 001.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F247DB192EE719005875A7 /* 001.png */; };
+		04F247E5192EE719005875A7 /* 002.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F247DC192EE719005875A7 /* 002.png */; };
+		04F247E6192EE719005875A7 /* 003.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F247DD192EE719005875A7 /* 003.png */; };
+		04F247E7192EE719005875A7 /* 004.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F247DE192EE719005875A7 /* 004.png */; };
+		04F247E8192EE719005875A7 /* 005.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F247DF192EE719005875A7 /* 005.png */; };
+		04F247E9192EE719005875A7 /* less_basic.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F247E0192EE719005875A7 /* less_basic.png */; };
+		04F247EA192EE719005875A7 /* less_touch.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F247E1192EE719005875A7 /* less_touch.png */; };
+		04F247EB192EE719005875A7 /* more_basic.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F247E2192EE719005875A7 /* more_basic.png */; };
+		04F247EC192EE719005875A7 /* more_touch.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F247E3192EE719005875A7 /* more_touch.png */; };
+		04F247EE192EEAB5005875A7 /* arrow_left_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F247ED192EEAB5005875A7 /* arrow_left_off.png */; };
+		04F247F1192EED8C005875A7 /* rsz_arrow_left_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F247EF192EED8C005875A7 /* rsz_arrow_left_off.png */; };
+		04F247F2192EED8C005875A7 /* rsz_help.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F247F0192EED8C005875A7 /* rsz_help.png */; };
+		04F247F5192EEF61005875A7 /* brightness_on_flash_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F247F3192EEF61005875A7 /* brightness_on_flash_off.png */; };
+		04F247F6192EEF61005875A7 /* brightness_on_flash_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F247F4192EEF61005875A7 /* brightness_on_flash_on.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -290,6 +313,29 @@
 		048FF76E191C0B7600E7AC3B /* imagebutton_002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imagebutton_002.png; sourceTree = "<group>"; };
 		048FF770191DF7DA00E7AC3B /* CameraInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraInfo.h; sourceTree = "<group>"; };
 		048FF771191DF7DA00E7AC3B /* CameraInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraInfo.m; sourceTree = "<group>"; };
+		04F247C9192EE1C4005875A7 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
+		04F247CB192EE355005875A7 /* mic_equ_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mic_equ_off.png; sourceTree = "<group>"; };
+		04F247CC192EE355005875A7 /* mic_equ_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mic_equ_on.png; sourceTree = "<group>"; };
+		04F247CD192EE355005875A7 /* volume_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = volume_off.png; sourceTree = "<group>"; };
+		04F247CE192EE355005875A7 /* volume_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = volume_on.png; sourceTree = "<group>"; };
+		04F247CF192EE355005875A7 /* volume_toggle_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = volume_toggle_off.png; sourceTree = "<group>"; };
+		04F247D0192EE355005875A7 /* volume_toggle_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = volume_toggle_on.png; sourceTree = "<group>"; };
+		04F247D7192EE5B9005875A7 /* mic_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mic_off.png; sourceTree = "<group>"; };
+		04F247D8192EE5B9005875A7 /* mic_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mic_on.png; sourceTree = "<group>"; };
+		04F247DB192EE719005875A7 /* 001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 001.png; sourceTree = "<group>"; };
+		04F247DC192EE719005875A7 /* 002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 002.png; sourceTree = "<group>"; };
+		04F247DD192EE719005875A7 /* 003.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 003.png; sourceTree = "<group>"; };
+		04F247DE192EE719005875A7 /* 004.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 004.png; sourceTree = "<group>"; };
+		04F247DF192EE719005875A7 /* 005.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 005.png; sourceTree = "<group>"; };
+		04F247E0192EE719005875A7 /* less_basic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = less_basic.png; sourceTree = "<group>"; };
+		04F247E1192EE719005875A7 /* less_touch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = less_touch.png; sourceTree = "<group>"; };
+		04F247E2192EE719005875A7 /* more_basic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more_basic.png; sourceTree = "<group>"; };
+		04F247E3192EE719005875A7 /* more_touch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more_touch.png; sourceTree = "<group>"; };
+		04F247ED192EEAB5005875A7 /* arrow_left_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_left_off.png; sourceTree = "<group>"; };
+		04F247EF192EED8C005875A7 /* rsz_arrow_left_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rsz_arrow_left_off.png; sourceTree = "<group>"; };
+		04F247F0192EED8C005875A7 /* rsz_help.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rsz_help.png; sourceTree = "<group>"; };
+		04F247F3192EEF61005875A7 /* brightness_on_flash_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brightness_on_flash_off.png; sourceTree = "<group>"; };
+		04F247F4192EEF61005875A7 /* brightness_on_flash_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brightness_on_flash_on.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -615,6 +661,29 @@
 		048FF756191BD59500E7AC3B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				04F247F3192EEF61005875A7 /* brightness_on_flash_off.png */,
+				04F247F4192EEF61005875A7 /* brightness_on_flash_on.png */,
+				04F247EF192EED8C005875A7 /* rsz_arrow_left_off.png */,
+				04F247F0192EED8C005875A7 /* rsz_help.png */,
+				04F247ED192EEAB5005875A7 /* arrow_left_off.png */,
+				04F247DB192EE719005875A7 /* 001.png */,
+				04F247DC192EE719005875A7 /* 002.png */,
+				04F247DD192EE719005875A7 /* 003.png */,
+				04F247DE192EE719005875A7 /* 004.png */,
+				04F247DF192EE719005875A7 /* 005.png */,
+				04F247E0192EE719005875A7 /* less_basic.png */,
+				04F247E1192EE719005875A7 /* less_touch.png */,
+				04F247E2192EE719005875A7 /* more_basic.png */,
+				04F247E3192EE719005875A7 /* more_touch.png */,
+				04F247D7192EE5B9005875A7 /* mic_off.png */,
+				04F247D8192EE5B9005875A7 /* mic_on.png */,
+				04F247CB192EE355005875A7 /* mic_equ_off.png */,
+				04F247CC192EE355005875A7 /* mic_equ_on.png */,
+				04F247CD192EE355005875A7 /* volume_off.png */,
+				04F247CE192EE355005875A7 /* volume_on.png */,
+				04F247CF192EE355005875A7 /* volume_toggle_off.png */,
+				04F247D0192EE355005875A7 /* volume_toggle_on.png */,
+				04F247C9192EE1C4005875A7 /* camera.png */,
 				048FF76E191C0B7600E7AC3B /* imagebutton_002.png */,
 				048FF766191C053000E7AC3B /* arrow.png */,
 				048FF767191C053000E7AC3B /* back_image.png */,
@@ -712,26 +781,49 @@
 			files = (
 				0407F4E8191937A900D38AEC /* Shader.vsh in Resources */,
 				048FF759191BD59500E7AC3B /* 001_image.png in Resources */,
+				04F247EA192EE719005875A7 /* less_touch.png in Resources */,
 				048FF76C191C053000E7AC3B /* logo.png in Resources */,
 				048FF76B191C053000E7AC3B /* back_image.png in Resources */,
 				048FF761191C012200E7AC3B /* back.png in Resources */,
 				048FF76A191C053000E7AC3B /* arrow.png in Resources */,
 				048FF76F191C0B7600E7AC3B /* imagebutton_002.png in Resources */,
+				04F247F2192EED8C005875A7 /* rsz_help.png in Resources */,
+				04F247D2192EE355005875A7 /* mic_equ_on.png in Resources */,
 				048FF76D191C053000E7AC3B /* picture.png in Resources */,
+				04F247F6192EEF61005875A7 /* brightness_on_flash_on.png in Resources */,
+				04F247EB192EE719005875A7 /* more_basic.png in Resources */,
 				041D4EAE190C138A00C3ED93 /* Main_iPad.storyboard in Resources */,
+				04F247EC192EE719005875A7 /* more_touch.png in Resources */,
 				048FF760191C012200E7AC3B /* back_on.png in Resources */,
+				04F247F1192EED8C005875A7 /* rsz_arrow_left_off.png in Resources */,
+				04F247D5192EE355005875A7 /* volume_toggle_off.png in Resources */,
+				04F247DA192EE5B9005875A7 /* mic_on.png in Resources */,
+				04F247D3192EE355005875A7 /* volume_off.png in Resources */,
 				041D4EB3190C138A00C3ED93 /* Images.xcassets in Resources */,
+				04F247E4192EE719005875A7 /* 001.png in Resources */,
+				04F247D6192EE355005875A7 /* volume_toggle_on.png in Resources */,
 				0407F52B19193F8900D38AEC /* icon_152.png in Resources */,
 				041D4EE8190C290800C3ED93 /* CamListItem.xib in Resources */,
+				04F247D9192EE5B9005875A7 /* mic_off.png in Resources */,
 				0407F5A5191948A200D38AEC /* P2PCameraDemoViewController.xib in Resources */,
+				04F247CA192EE1C4005875A7 /* camera.png in Resources */,
 				048FF75C191BED1400E7AC3B /* 005_image.png in Resources */,
+				04F247E8192EE719005875A7 /* 005.png in Resources */,
+				04F247E5192EE719005875A7 /* 002.png in Resources */,
 				041D4EAB190C138A00C3ED93 /* Main_iPhone.storyboard in Resources */,
 				041D4EA2190C138A00C3ED93 /* InfoPlist.strings in Resources */,
+				04F247EE192EEAB5005875A7 /* arrow_left_off.png in Resources */,
 				048FF762191C012200E7AC3B /* next.png in Resources */,
 				0407F52519193E4000D38AEC /* icon.png in Resources */,
+				04F247D4192EE355005875A7 /* volume_on.png in Resources */,
+				04F247F5192EEF61005875A7 /* brightness_on_flash_off.png in Resources */,
+				04F247E9192EE719005875A7 /* less_basic.png in Resources */,
 				0407F52919193F8900D38AEC /* icon_76.png in Resources */,
+				04F247E7192EE719005875A7 /* 004.png in Resources */,
 				0407F4E7191937A900D38AEC /* Shader.fsh in Resources */,
 				0407F52A19193F8900D38AEC /* icon_120.png in Resources */,
+				04F247D1192EE355005875A7 /* mic_equ_off.png in Resources */,
+				04F247E6192EE719005875A7 /* 003.png in Resources */,
 				048FF75A191BD59500E7AC3B /* 003_image.png in Resources */,
 				0407F4E31919376000D38AEC /* AddCamItem.xib in Resources */,
 			);

@@ -20,11 +20,17 @@
     BOOL isMicOn;
     BOOL isSpeakerOn;
     BOOL isPlaying;
+    int feedAmount;
     NSTimer *timer;
     IBOutlet UIButton *feedButton;
     IBOutlet UIButton *micButton;
     IBOutlet UIButton *speakerButton;
     IBOutlet UIButton *playButton;
+    IBOutlet UIButton *moreButton;
+    IBOutlet UIButton *lessButton;
+    IBOutlet UIImageView *micImage;
+    IBOutlet UIImageView *speakerImage;
+    IBOutlet UIImageView *feedAmountImage;
     
     IBOutlet UIView *portrait;
     IBOutlet UIView *landscape;
@@ -36,6 +42,7 @@
 @property (nonatomic) BOOL isMicOn;
 @property (nonatomic) BOOL isSpeakerOn;
 @property (nonatomic) BOOL isPlaying;
+@property (nonatomic) int feedAmount;
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *uid;
 @property (nonatomic, retain) NSTimer *timer;
@@ -43,9 +50,14 @@
 @property (nonatomic, retain) IBOutlet UIButton *micButton;
 @property (nonatomic, retain) IBOutlet UIButton *speakerButton;
 @property (nonatomic, retain) IBOutlet UIButton *playButton;
+@property (nonatomic, retain) IBOutlet UIButton *moreButton;
+@property (nonatomic, retain) IBOutlet UIButton *lessButton;
 @property (nonatomic, retain) IBOutlet UIView *portrait;
 @property (nonatomic, retain) IBOutlet UIView *landscape;
 @property (nonatomic, retain) IBOutlet UINavigationBar *navigationBar;
+@property (nonatomic, retain) IBOutlet UIImageView *speakerImage;
+@property (nonatomic, retain) IBOutlet UIImageView *micImage;
+@property (nonatomic, retain) IBOutlet UIImageView *feedAmountImage;
 
 - (void)orientationChanged:(NSNotification *)notification;
 - (IBAction)changeOrientation:(id)sender;
@@ -57,6 +69,7 @@
 @property (nonatomic, retain) IBOutlet UIImageView* landscapePlayView;
 @property  CPPPPChannelManagement* m_PPPPChannelMgt;
 
+- (IBAction)controlFeedAmount:(id)sender;
 - (IBAction)Initialize:(id)sender;
 - (IBAction)ConnectCam:(id)sender;
 - (IBAction)starVideo:(id)sender;

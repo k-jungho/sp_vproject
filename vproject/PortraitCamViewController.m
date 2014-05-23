@@ -21,7 +21,7 @@
 
 @implementation PortraitCamViewController
 
-@synthesize isInitialized, isPortrait, isFeeding, isMicOn, isSpeakerOn, isPlaying, name, uid, timer, feedButton, micButton, speakerButton, playButton, portrait, landscape;
+@synthesize isInitialized, isPortrait, isFeeding, isMicOn, isSpeakerOn, isPlaying, name, uid, timer, feedButton, micButton, speakerButton, playButton, portrait, landscape, speakerImage, micImage, moreButton, lessButton, feedAmountImage, feedAmount;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -58,7 +58,8 @@
     isFeeding = NO;
     isMicOn = NO;
     isSpeakerOn = YES;
-
+    feedAmount = 3;
+    
     [portrait setHidden:NO];
     [landscape setHidden:YES];
     
@@ -77,7 +78,8 @@
         _landscapePlayView.image = nil;
     });
     
-    self.title = [NSString stringWithString:name];
+    _navigationBar.topItem.title = [NSString stringWithString:name];
+    //self.title = [NSString stringWithString:name];
     _cameraID = uid;
     
     [self performSelector:@selector(startPPPP:) withObject:_cameraID];
@@ -312,6 +314,58 @@
     _m_PPPPChannelMgt->Start([camID UTF8String], [@"admin" UTF8String], [@"888888" UTF8String]);
 }
 
+- (IBAction)controlFeedAmount:(id)sender {
+    switch ([sender tag]) {
+        case 1:
+            if (feedAmount < 5) {
+                feedAmount++;
+            }
+            break;
+        case -1:
+            if (feedAmount > 0) {
+                feedAmount--;
+            }
+            break;
+    }
+    
+    switch (feedAmount) {
+        case 1:
+        {
+            UIImage *feed1 = [UIImage imageNamed:@"001.png"];
+            [feedAmountImage setImage:feed1];
+        }
+            break;
+            
+        case 2:
+        {
+            UIImage *feed2 = [UIImage imageNamed:@"002.png"];
+            [feedAmountImage setImage:feed2];
+        }
+            break;
+            
+        case 3:
+        {
+            UIImage *feed3 = [UIImage imageNamed:@"003.png"];
+            [feedAmountImage setImage:feed3];
+        }
+            break;
+            
+        case 4:
+        {
+            UIImage *feed4 = [UIImage imageNamed:@"004.png"];
+            [feedAmountImage setImage:feed4];
+        }
+            break;
+            
+        case 5:
+        {
+            UIImage *feed5 = [UIImage imageNamed:@"005.png"];
+            [feedAmountImage setImage:feed5];
+        }
+            break;
+    }
+}
+
 - (IBAction)feed:(id)sender {
 //    if (isFeeding) {
 //        _m_PPPPChannelMgt->PTZ_Control([_cameraID UTF8String], CMD_PTZ_LEFT_RIGHT_STOP);
@@ -369,14 +423,18 @@
 - (IBAction)mic:(id)sender {
     if (isMicOn) {
         _m_PPPPChannelMgt->StopPPPPTalk([_cameraID UTF8String]);
-        //[micButton setTitle:@"Mic Off" forState:UIControlStateNormal];
-        [micButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        [micButton setTitle:@"Tab to Speak" forState:UIControlStateNormal];
+        //[micButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        UIImage *mic_off = [UIImage imageNamed:@"mic_off.png"];
+        [micImage setImage:mic_off];
         isMicOn = NO;
     }
     else {
         _m_PPPPChannelMgt->StartPPPPTalk([_cameraID UTF8String]);
-        //[micButton setTitle:@"Mic On" forState:UIControlStateNormal];
-        [micButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        [micButton setTitle:@"Speaking..." forState:UIControlStateNormal];
+        //[micButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        UIImage *mic_on = [UIImage imageNamed:@"mic_on.png"];
+        [micImage setImage:mic_on];
         isMicOn = YES;
     }
 }
@@ -385,13 +443,21 @@
     if (isSpeakerOn) {
         _m_PPPPChannelMgt->StopPPPPAudio([_cameraID UTF8String]);
         //[speakerButton setTitle:@"Speaker Off" forState:UIControlStateNormal];
-        [speakerButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        //[speakerButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        UIImage *toggle_off = [UIImage imageNamed:@"volume_toggle_off.png"];
+        [speakerButton setImage:toggle_off forState:UIControlStateNormal];
+        UIImage *volume_off = [UIImage imageNamed:@"volume_off.png"];
+        [speakerImage setImage:volume_off];
         isSpeakerOn = NO;
     }
     else {
         _m_PPPPChannelMgt->StartPPPPAudio([_cameraID UTF8String]);
         //[speakerButton setTitle:@"Speaker On" forState:UIControlStateNormal];
-        [speakerButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        //[speakerButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        UIImage *toggle_on = [UIImage imageNamed:@"volume_toggle_on.png"];
+        [speakerButton setImage:toggle_on forState:UIControlStateNormal];
+        UIImage *volume_on = [UIImage imageNamed:@"volume_on.png"];
+        [speakerImage setImage:volume_on];
         isSpeakerOn = YES;
     }
 }
