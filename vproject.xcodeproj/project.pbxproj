@@ -127,6 +127,12 @@
 		04F247F2192EED8C005875A7 /* rsz_help.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F247F0192EED8C005875A7 /* rsz_help.png */; };
 		04F247F5192EEF61005875A7 /* brightness_on_flash_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F247F3192EEF61005875A7 /* brightness_on_flash_off.png */; };
 		04F247F6192EEF61005875A7 /* brightness_on_flash_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F247F4192EEF61005875A7 /* brightness_on_flash_on.png */; };
+		04F247F91930311B005875A7 /* mic_off_landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F247F71930311B005875A7 /* mic_off_landscape.png */; };
+		04F247FA1930311B005875A7 /* mic_on_landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F247F81930311B005875A7 /* mic_on_landscape.png */; };
+		04F2485E1930DE23005875A7 /* bg_control_feed.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F2485C1930DE23005875A7 /* bg_control_feed.png */; };
+		04F2485F1930DE23005875A7 /* bg_feed.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F2485D1930DE23005875A7 /* bg_feed.png */; };
+		04F248611930F0F4005875A7 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F248601930F0F4005875A7 /* AssetsLibrary.framework */; };
+		04F248641930F7EF005875A7 /* ShowPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F248631930F7EF005875A7 /* ShowPhotoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -336,6 +342,13 @@
 		04F247F0192EED8C005875A7 /* rsz_help.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rsz_help.png; sourceTree = "<group>"; };
 		04F247F3192EEF61005875A7 /* brightness_on_flash_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brightness_on_flash_off.png; sourceTree = "<group>"; };
 		04F247F4192EEF61005875A7 /* brightness_on_flash_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brightness_on_flash_on.png; sourceTree = "<group>"; };
+		04F247F71930311B005875A7 /* mic_off_landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mic_off_landscape.png; sourceTree = "<group>"; };
+		04F247F81930311B005875A7 /* mic_on_landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mic_on_landscape.png; sourceTree = "<group>"; };
+		04F2485C1930DE23005875A7 /* bg_control_feed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_control_feed.png; sourceTree = "<group>"; };
+		04F2485D1930DE23005875A7 /* bg_feed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_feed.png; sourceTree = "<group>"; };
+		04F248601930F0F4005875A7 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		04F248621930F7EF005875A7 /* ShowPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowPhotoViewController.h; sourceTree = "<group>"; };
+		04F248631930F7EF005875A7 /* ShowPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowPhotoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -343,6 +356,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04F248611930F0F4005875A7 /* AssetsLibrary.framework in Frameworks */,
 				0407F52119193BB100D38AEC /* libbz2.dylib in Frameworks */,
 				0407F51619193B7500D38AEC /* libavcodec.a in Frameworks */,
 				0407F51719193B7500D38AEC /* libavdevice.a in Frameworks */,
@@ -549,6 +563,7 @@
 		041D4E96190C138A00C3ED93 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04F248601930F0F4005875A7 /* AssetsLibrary.framework */,
 				0407F52019193BB100D38AEC /* libbz2.dylib */,
 				0407F50C19193B7500D38AEC /* libavcodec.a */,
 				0407F50D19193B7500D38AEC /* libavdevice.a */,
@@ -625,6 +640,8 @@
 				0407F5B01919751A00D38AEC /* ConfirmInfoForAddCameraViewController.m */,
 				048FF770191DF7DA00E7AC3B /* CameraInfo.h */,
 				048FF771191DF7DA00E7AC3B /* CameraInfo.m */,
+				04F248621930F7EF005875A7 /* ShowPhotoViewController.h */,
+				04F248631930F7EF005875A7 /* ShowPhotoViewController.m */,
 			);
 			path = vproject;
 			sourceTree = "<group>";
@@ -661,6 +678,10 @@
 		048FF756191BD59500E7AC3B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				04F2485C1930DE23005875A7 /* bg_control_feed.png */,
+				04F2485D1930DE23005875A7 /* bg_feed.png */,
+				04F247F71930311B005875A7 /* mic_off_landscape.png */,
+				04F247F81930311B005875A7 /* mic_on_landscape.png */,
 				04F247F3192EEF61005875A7 /* brightness_on_flash_off.png */,
 				04F247F4192EEF61005875A7 /* brightness_on_flash_on.png */,
 				04F247EF192EED8C005875A7 /* rsz_arrow_left_off.png */,
@@ -781,8 +802,10 @@
 			files = (
 				0407F4E8191937A900D38AEC /* Shader.vsh in Resources */,
 				048FF759191BD59500E7AC3B /* 001_image.png in Resources */,
+				04F2485E1930DE23005875A7 /* bg_control_feed.png in Resources */,
 				04F247EA192EE719005875A7 /* less_touch.png in Resources */,
 				048FF76C191C053000E7AC3B /* logo.png in Resources */,
+				04F247FA1930311B005875A7 /* mic_on_landscape.png in Resources */,
 				048FF76B191C053000E7AC3B /* back_image.png in Resources */,
 				048FF761191C012200E7AC3B /* back.png in Resources */,
 				048FF76A191C053000E7AC3B /* arrow.png in Resources */,
@@ -793,6 +816,7 @@
 				04F247F6192EEF61005875A7 /* brightness_on_flash_on.png in Resources */,
 				04F247EB192EE719005875A7 /* more_basic.png in Resources */,
 				041D4EAE190C138A00C3ED93 /* Main_iPad.storyboard in Resources */,
+				04F2485F1930DE23005875A7 /* bg_feed.png in Resources */,
 				04F247EC192EE719005875A7 /* more_touch.png in Resources */,
 				048FF760191C012200E7AC3B /* back_on.png in Resources */,
 				04F247F1192EED8C005875A7 /* rsz_arrow_left_off.png in Resources */,
@@ -800,6 +824,7 @@
 				04F247DA192EE5B9005875A7 /* mic_on.png in Resources */,
 				04F247D3192EE355005875A7 /* volume_off.png in Resources */,
 				041D4EB3190C138A00C3ED93 /* Images.xcassets in Resources */,
+				04F247F91930311B005875A7 /* mic_off_landscape.png in Resources */,
 				04F247E4192EE719005875A7 /* 001.png in Resources */,
 				04F247D6192EE355005875A7 /* volume_toggle_on.png in Resources */,
 				0407F52B19193F8900D38AEC /* icon_152.png in Resources */,
@@ -862,6 +887,7 @@
 				0407F585191942B800D38AEC /* Adpcm.mm in Sources */,
 				0407F58B191942B800D38AEC /* CustomAVRecorder.mm in Sources */,
 				0407F5AE191974D500D38AEC /* SetNameForAddCameraViewController.m in Sources */,
+				04F248641930F7EF005875A7 /* ShowPhotoViewController.m in Sources */,
 				0407F596191942B800D38AEC /* PCMRecorder.mm in Sources */,
 				0407F5A81919666300D38AEC /* QRScannerViewController.m in Sources */,
 				048FF765191C043200E7AC3B /* LoginViewController.m in Sources */,

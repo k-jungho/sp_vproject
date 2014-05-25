@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AssetsLibrary/AssetsLibrary.h>
 #include "PPPP_API.h"
 #include "PPPPChannelManagement.h"
 #import "ImageNotifyProtocol.h"
 
-@interface PortraitCamViewController : UIViewController<ImageNotifyProtocol, UIBarPositioningDelegate> {
+@interface PortraitCamViewController : UIViewController<ImageNotifyProtocol, UIBarPositioningDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
     BOOL isInitialized;
     NSString *name;
     NSString *uid;
@@ -31,6 +32,17 @@
     IBOutlet UIImageView *micImage;
     IBOutlet UIImageView *speakerImage;
     IBOutlet UIImageView *feedAmountImage;
+    IBOutlet UIImageView *captureButtonImage;
+    IBOutlet UIImageView *albumImage;
+    
+    IBOutlet UIButton *feedButton_landscape;
+    IBOutlet UIButton *moreButton_landscape;
+    IBOutlet UIButton *lessButton_landscape;
+    IBOutlet UIImageView *feedAmountImage_landscape;
+    IBOutlet UIImageView *captureButtonImage_landscape;
+    IBOutlet UIImageView *micImage_landscape;
+    IBOutlet UIImageView *speakerImage_landscape;
+    IBOutlet UIImageView *albumImage_landscape;
     
     IBOutlet UIView *portrait;
     IBOutlet UIView *landscape;
@@ -58,6 +70,16 @@
 @property (nonatomic, retain) IBOutlet UIImageView *speakerImage;
 @property (nonatomic, retain) IBOutlet UIImageView *micImage;
 @property (nonatomic, retain) IBOutlet UIImageView *feedAmountImage;
+@property (nonatomic, retain) IBOutlet UIImageView *captureButtonImage;
+@property (nonatomic, retain) IBOutlet UIImageView *albumImage;
+@property (nonatomic, retain) IBOutlet UIButton *feedButton_landscape;
+@property (nonatomic, retain) IBOutlet UIButton *moreButton_landscape;
+@property (nonatomic, retain) IBOutlet UIButton *lessButton_landscape;
+@property (nonatomic, retain) IBOutlet UIImageView *feedAmountImage_landscape;
+@property (nonatomic, retain) IBOutlet UIImageView *captureButtonImage_landscape;
+@property (nonatomic, retain) IBOutlet UIImageView *micImage_landscape;
+@property (nonatomic, retain) IBOutlet UIImageView *speakerImage_landscape;
+@property (nonatomic, retain) IBOutlet UIImageView *albumImage_landscape;
 
 - (void)orientationChanged:(NSNotification *)notification;
 - (IBAction)changeOrientation:(id)sender;
@@ -82,6 +104,8 @@
 - (IBAction)speaker:(id)sender;
 - (IBAction)play:(id)sender;
 - (IBAction)capture:(id)sender;
+- (IBAction)captureDown:(id)sender;
+- (IBAction)captureUpOver:(id)sender;
 - (IBAction)setBase:(id)sender;
 - (IBAction)goToBase:(id)sender;
 

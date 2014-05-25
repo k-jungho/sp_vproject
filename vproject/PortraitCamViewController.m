@@ -8,6 +8,7 @@
 
 #import "PortraitCamViewController.h"
 #import "LandscapeCamViewController.h"
+#import "ShowPhotoViewController.h"
 #include "MyAudioSession.h"
 #include "APICommon.h"
 #import "PPPPDefine.h"
@@ -21,7 +22,7 @@
 
 @implementation PortraitCamViewController
 
-@synthesize isInitialized, isPortrait, isFeeding, isMicOn, isSpeakerOn, isPlaying, name, uid, timer, feedButton, micButton, speakerButton, playButton, portrait, landscape, speakerImage, micImage, moreButton, lessButton, feedAmountImage, feedAmount;
+@synthesize isInitialized, isPortrait, isFeeding, isMicOn, isSpeakerOn, isPlaying, name, uid, timer, feedButton, micButton, speakerButton, playButton, portrait, landscape, speakerImage, micImage, moreButton, lessButton, feedAmountImage, feedAmount, captureButtonImage, feedButton_landscape, micImage_landscape, speakerImage_landscape, moreButton_landscape, lessButton_landscape, feedAmountImage_landscape, captureButtonImage_landscape, albumImage, albumImage_landscape;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,6 +35,40 @@
 
 - (UIBarPosition)positionForBar:(id<UIBarPositioning>)bar {
     return UIBarPositionTopAttached;
+}
+
+- (void)loadLastImage {
+    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+    
+    // Enumerate just the photos and videos group by using ALAssetsGroupSavedPhotos.
+    [library enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
+        
+        // Within the group enumeration block, filter to enumerate just photos.
+        [group setAssetsFilter:[ALAssetsFilter allPhotos]];
+        
+        // Chooses the photo at the last index
+        [group enumerateAssetsWithOptions:NSEnumerationReverse usingBlock:^(ALAsset *alAsset, NSUInteger index, BOOL *innerStop) {
+            // The end of the enumeration is signaled by asset == nil.
+            if (alAsset) {
+                ALAssetRepresentation *representation = [alAsset defaultRepresentation];
+                UIImage *latestPhoto = [UIImage imageWithCGImage:[representation fullScreenImage]];
+                
+                
+                UIImage *latestPhotoThumbnail =  [UIImage imageWithCGImage:[alAsset thumbnail]];
+                [albumImage setImage:latestPhoto];
+                [albumImage_landscape setImage:latestPhoto];
+                
+                // Stop the enumerations
+                *stop = YES; *innerStop = YES;
+                
+                // Do something interesting with the AV asset.
+                //[self sendTweet:latestPhoto];
+            }
+        }];
+    } failureBlock: ^(NSError *error) {
+        // Typically you should handle an error more gracefully than this.
+        NSLog(@"No groups");
+    }];
 }
 
 - (void)viewDidLoad
@@ -57,11 +92,13 @@
     isPortrait = YES;
     isFeeding = NO;
     isMicOn = NO;
-    isSpeakerOn = YES;
+    isSpeakerOn = NO;
     feedAmount = 3;
     
     [portrait setHidden:NO];
     [landscape setHidden:YES];
+    
+    [self loadLastImage];
     
 //    PPPP_Initialize((char*)[@"EFGBFFBJKDJBGNJBEBGMFOEIHPNFHGNOGHFBBOCPAJJOLDLNDBAHCOOPGJLMJGLKAOMPLMDINEIOLMFAFCPJJGAM" UTF8String]);//Input your company server address
 //    st_PPPP_NetInfo NetInfo;
@@ -106,31 +143,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    if ([segue.identifier isEqualToString:@"changeToLandscape"]) {
-//        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-//    }
-//}
-
-//- (NSUInteger)supportedInterfaceOrientations {
-//    if (isPortrait) {
-//        return UIInterfaceOrientationMaskPortrait;
-//        [portrait setHidden:NO];
-//        [landscape setHidden:YES];
-//        
-//    }
-//    else {
-//        return UIInterfaceOrientationMaskLandscape;
-//        [portrait setHidden:YES];
-//        [landscape setHidden:NO];
-//    }
-//}
-//
-//- (BOOL)shouldAutorotate
-//{
-//    return YES;
-//}
-
+/*
 -(BOOL)shouldAutorotate
 {
     if( isInitialized == NO ) {
@@ -156,43 +169,12 @@
         return UIInterfaceOrientationMaskLandscape;
     }
 }
-//
-//- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
-//{
-//    if( isInitialized == NO ) {
-//        return UIInterfaceOrientationPortrait;
-//    }
-//    if (isPortrait) {
-//        return UIInterfaceOrientationPortrait;
-//    }
-//    else {
-//        return UIInterfaceOrientationLandscapeRight;
-//    }
-//}
 
 - (void)orientationChanged:(NSNotification *)notification {
-//    if (isPortrait) {
-//        if ( [portrait isHidden ] == YES )
-//            [portrait setHidden:NO];
-//        if ( [landscape isHidden ] == NO )
-//            [landscape setHidden:YES];
-//    }
-//    else {
-//        if ( [portrait isHidden ] == NO )
-//            [portrait setHidden:YES];
-//        if ( [landscape isHidden ] == YES )
-//            [landscape setHidden:NO];
-//    }
 }
 
 - (IBAction)changeOrientation:(id)sender {
     isPortrait = !isPortrait;
-//    if (isPortrait) {
-//        objc_msgSend([UIDevice currentDevice], @selector(setOrientation:), UIInterfaceOrientationPortrait);
-//    }
-//    else {
-//        objc_msgSend([UIDevice currentDevice], @selector(setOrientation:), UIInterfaceOrientationLandscapeLeft);
-//    }
     
     if ([[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)])
     {
@@ -210,6 +192,30 @@
         }
         
     }
+}
+ */
+
+- (void)orientationChanged:(NSNotification *)notification {
+    //isPortrait = !isPortrait;
+    
+    if ([[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)]) {
+        if ([UIDevice currentDevice].orientation == UIDeviceOrientationPortrait) {
+            //objc_msgSend([UIDevice currentDevice],@selector(setOrientation:),UIInterfaceOrientationLandscapeLeft );
+            [portrait setHidden:NO];
+            [landscape setHidden:YES];
+        }
+        else if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) {
+            //objc_msgSend([UIDevice currentDevice], @selector(setOrientation:), UIInterfaceOrientationPortrait);
+            [landscape setHidden:NO];
+            [portrait setHidden:YES];
+        }
+        
+    }
+}
+
+-(BOOL)shouldAutorotate
+{
+    return YES;
 }
 
 - (IBAction)back:(id)sender {
@@ -322,24 +328,26 @@
             }
             break;
         case -1:
-            if (feedAmount > 0) {
+            if (feedAmount > 2) {
                 feedAmount--;
             }
             break;
     }
     
     switch (feedAmount) {
-        case 1:
-        {
-            UIImage *feed1 = [UIImage imageNamed:@"001.png"];
-            [feedAmountImage setImage:feed1];
-        }
-            break;
+//        case 1:
+//        {
+//            UIImage *feed1 = [UIImage imageNamed:@"001.png"];
+//            [feedAmountImage setImage:feed1];
+//            [feedAmountImage_landscape setImage:feed1];
+//        }
+//            break;
             
         case 2:
         {
             UIImage *feed2 = [UIImage imageNamed:@"002.png"];
             [feedAmountImage setImage:feed2];
+            [feedAmountImage_landscape setImage:feed2];
         }
             break;
             
@@ -347,6 +355,7 @@
         {
             UIImage *feed3 = [UIImage imageNamed:@"003.png"];
             [feedAmountImage setImage:feed3];
+            [feedAmountImage_landscape setImage:feed3];
         }
             break;
             
@@ -354,6 +363,7 @@
         {
             UIImage *feed4 = [UIImage imageNamed:@"004.png"];
             [feedAmountImage setImage:feed4];
+            [feedAmountImage_landscape setImage:feed4];
         }
             break;
             
@@ -361,6 +371,7 @@
         {
             UIImage *feed5 = [UIImage imageNamed:@"005.png"];
             [feedAmountImage setImage:feed5];
+            [feedAmountImage_landscape setImage:feed5];
         }
             break;
     }
@@ -397,6 +408,7 @@
 //                                            repeats:NO];
 //    
     [feedButton setAlpha:0.0f];
+    [feedButton_landscape setAlpha:0.0f];
 }
 
 - (void)activateFeed:(NSTimer *)calledTimer {
@@ -409,6 +421,7 @@
         }
         //_m_PPPPChannelMgt->PTZ_Control([_cameraID UTF8String], CMD_PTZ_RIGHT_STOP);
         [feedButton setAlpha:1.0f];
+        [feedButton_landscape setAlpha:1.0f];
         counter = 0;
     }
     NSLog(@"%d", counter);
@@ -425,16 +438,20 @@
         _m_PPPPChannelMgt->StopPPPPTalk([_cameraID UTF8String]);
         [micButton setTitle:@"Tab to Speak" forState:UIControlStateNormal];
         //[micButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-        UIImage *mic_off = [UIImage imageNamed:@"mic_off.png"];
+        UIImage *mic_off = [UIImage imageNamed:@"mic_off_landscape.png"];
         [micImage setImage:mic_off];
+        UIImage *mic_off_landscape = [UIImage imageNamed:@"mic_off_landscape.png"];
+        [micImage_landscape setImage:mic_off_landscape];
         isMicOn = NO;
     }
     else {
         _m_PPPPChannelMgt->StartPPPPTalk([_cameraID UTF8String]);
         [micButton setTitle:@"Speaking..." forState:UIControlStateNormal];
         //[micButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-        UIImage *mic_on = [UIImage imageNamed:@"mic_on.png"];
+        UIImage *mic_on = [UIImage imageNamed:@"mic_on_landscape.png"];
         [micImage setImage:mic_on];
+        UIImage *mic_on_landscape = [UIImage imageNamed:@"mic_on_landscape.png"];
+        [micImage_landscape setImage:mic_on_landscape];
         isMicOn = YES;
     }
 }
@@ -448,6 +465,7 @@
         [speakerButton setImage:toggle_off forState:UIControlStateNormal];
         UIImage *volume_off = [UIImage imageNamed:@"volume_off.png"];
         [speakerImage setImage:volume_off];
+        [speakerImage_landscape setImage:volume_off];
         isSpeakerOn = NO;
     }
     else {
@@ -458,6 +476,7 @@
         [speakerButton setImage:toggle_on forState:UIControlStateNormal];
         UIImage *volume_on = [UIImage imageNamed:@"volume_on.png"];
         [speakerImage setImage:volume_on];
+        [speakerImage_landscape setImage:volume_on];
         isSpeakerOn = YES;
     }
 }
@@ -466,12 +485,21 @@
     if (isPlaying) {
         if (isMicOn) {
             _m_PPPPChannelMgt->StopPPPPTalk([_cameraID UTF8String]);
-            [micButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+            [micButton setTitle:@"Tab to Speak" forState:UIControlStateNormal];
+            //[micButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+            UIImage *mic_off = [UIImage imageNamed:@"mic_off_landscape.png"];
+            [micImage setImage:mic_off];
+            UIImage *mic_off_landscape = [UIImage imageNamed:@"mic_off_landscape.png"];
+            [micImage_landscape setImage:mic_off_landscape];
             isMicOn = NO;
         }
         if (isSpeakerOn) {
             _m_PPPPChannelMgt->StopPPPPAudio([_cameraID UTF8String]);
-            [speakerButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+            UIImage *toggle_off = [UIImage imageNamed:@"volume_toggle_off.png"];
+            [speakerButton setImage:toggle_off forState:UIControlStateNormal];
+            UIImage *volume_off = [UIImage imageNamed:@"volume_off.png"];
+            [speakerImage setImage:volume_off];
+            [speakerImage_landscape setImage:volume_off];
             isSpeakerOn = NO;
         }
         _m_PPPPChannelMgt->StopPPPPLivestream([_cameraID UTF8String]);
@@ -490,16 +518,103 @@
                 return;
             }
             _m_PPPPChannelMgt->StartPPPPAudio([_cameraID UTF8String]);
-            [speakerButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
             [playButton setTitle:@"Stop" forState:UIControlStateNormal];
+            UIImage *toggle_on = [UIImage imageNamed:@"volume_toggle_on.png"];
+            [speakerButton setImage:toggle_on forState:UIControlStateNormal];
+            UIImage *volume_on = [UIImage imageNamed:@"volume_on.png"];
+            [speakerImage setImage:volume_on];
+            [speakerImage_landscape setImage:volume_on];
             isSpeakerOn = YES;
         }
         isPlaying = YES;
+        [playButton setAlpha:0.0f];
+        [playButton setHidden:YES];
     }
 }
 
++ (UIImage *) imageWithView:(UIView *)view
+{
+    UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, 0.0);
+    [view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    
+    UIImage * img = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return img;
+}
+
 - (IBAction)capture:(id)sender {
-    _m_PPPPChannelMgt->Snapshot([_cameraID UTF8String]);
+    UIGraphicsBeginImageContextWithOptions(_landscapePlayView.bounds.size, _landscapePlayView.opaque, 0.0);
+    [_landscapePlayView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage * img = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil);
+    
+    [captureButtonImage setFrame:CGRectMake(149, 14, 23, 23)];
+    [captureButtonImage_landscape setFrame:CGRectMake(18, 148, 23, 23)];
+}
+
+- (IBAction)captureDown:(id)sender {
+    [captureButtonImage setFrame:CGRectMake(144, 9, 33, 33)];
+    [captureButtonImage_landscape setFrame:CGRectMake(13,143, 33, 33)];
+}
+- (IBAction)captureUpOver:(id)sender {
+    [captureButtonImage setFrame:CGRectMake(149, 14, 23, 23)];
+    [captureButtonImage_landscape setFrame:CGRectMake(18, 148, 23, 23)];
+}
+
+-(void)addPhoto:(ALAssetRepresentation *)asset
+{
+    //NSLog(@"Adding photo!");
+    //[photos addObject:asset];
+}
+
+-(void)loadPhotos
+{
+    NSMutableArray *photos = [[NSMutableArray alloc] init];
+    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+    
+    // Enumerate just the photos and videos group by using ALAssetsGroupSavedPhotos.
+    if([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
+    {
+        [library enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos usingBlock:^(ALAssetsGroup *group, BOOL *stop)
+         {
+             // Within the group enumeration block, filter if necessary
+             [group setAssetsFilter:[ALAssetsFilter allPhotos]];
+             [group enumerateAssetsUsingBlock:^(ALAsset *alAsset, NSUInteger index, BOOL *innerStop)
+              {
+                  // The end of the enumeration is signaled by asset == nil.
+                  if (alAsset)
+                  {
+                      ALAssetRepresentation *representation = [alAsset defaultRepresentation];
+                      [self addPhoto:representation];
+                  }
+                  else
+                  {
+                      NSLog(@"Done! Count = %d", photos.count);
+                      //Do something awesome
+                  }
+              }];
+         }
+                             failureBlock: ^(NSError *error) {
+                                 // Typically you should handle an error more gracefully than this.
+                                 NSLog(@"No groups");
+                             }];
+    }
+}
+
+-(IBAction) getPhoto:(id) sender {
+    UIImagePickerController * picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+    [self presentModalViewController:picker animated:YES];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo {
+    ShowPhotoViewController *photoViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ShowPhoto"];
+    photoViewController.src = image;
+    [picker presentModalViewController:photoViewController animated:YES];
 }
 
 - (IBAction)setBase:(id)sender {
