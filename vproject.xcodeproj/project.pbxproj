@@ -133,6 +133,8 @@
 		04F2485F1930DE23005875A7 /* bg_feed.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F2485D1930DE23005875A7 /* bg_feed.png */; };
 		04F248611930F0F4005875A7 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F248601930F0F4005875A7 /* AssetsLibrary.framework */; };
 		04F248641930F7EF005875A7 /* ShowPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F248631930F7EF005875A7 /* ShowPhotoViewController.m */; };
+		04F248AA19379893005875A7 /* Main_iPhone4inch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04F248A819379893005875A7 /* Main_iPhone4inch.storyboard */; };
+		04F248AC19379B02005875A7 /* Add Camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F248AB19379B02005875A7 /* Add Camera.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -349,6 +351,8 @@
 		04F248601930F0F4005875A7 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		04F248621930F7EF005875A7 /* ShowPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowPhotoViewController.h; sourceTree = "<group>"; };
 		04F248631930F7EF005875A7 /* ShowPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowPhotoViewController.m; sourceTree = "<group>"; };
+		04F248A919379893005875A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone4inch.storyboard; sourceTree = "<group>"; };
+		04F248AB19379B02005875A7 /* Add Camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Add Camera.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -606,6 +610,7 @@
 				048FF74F191BC56A00E7AC3B /* TPKeyboardAvoidingScrollView.m */,
 				041D4EA6190C138A00C3ED93 /* AppDelegate.h */,
 				041D4EA7190C138A00C3ED93 /* AppDelegate.m */,
+				04F248A819379893005875A7 /* Main_iPhone4inch.storyboard */,
 				041D4EA9190C138A00C3ED93 /* Main_iPhone.storyboard */,
 				041D4EAC190C138A00C3ED93 /* Main_iPad.storyboard */,
 				041D4EAF190C138A00C3ED93 /* ViewController.h */,
@@ -685,6 +690,7 @@
 				04F247F3192EEF61005875A7 /* brightness_on_flash_off.png */,
 				04F247F4192EEF61005875A7 /* brightness_on_flash_on.png */,
 				04F247EF192EED8C005875A7 /* rsz_arrow_left_off.png */,
+				04F248AB19379B02005875A7 /* Add Camera.png */,
 				04F247F0192EED8C005875A7 /* rsz_help.png */,
 				04F247ED192EEAB5005875A7 /* arrow_left_off.png */,
 				04F247DB192EE719005875A7 /* 001.png */,
@@ -811,10 +817,12 @@
 				048FF76A191C053000E7AC3B /* arrow.png in Resources */,
 				048FF76F191C0B7600E7AC3B /* imagebutton_002.png in Resources */,
 				04F247F2192EED8C005875A7 /* rsz_help.png in Resources */,
+				04F248AC19379B02005875A7 /* Add Camera.png in Resources */,
 				04F247D2192EE355005875A7 /* mic_equ_on.png in Resources */,
 				048FF76D191C053000E7AC3B /* picture.png in Resources */,
 				04F247F6192EEF61005875A7 /* brightness_on_flash_on.png in Resources */,
 				04F247EB192EE719005875A7 /* more_basic.png in Resources */,
+				04F248AA19379893005875A7 /* Main_iPhone4inch.storyboard in Resources */,
 				041D4EAE190C138A00C3ED93 /* Main_iPad.storyboard in Resources */,
 				04F2485F1930DE23005875A7 /* bg_feed.png in Resources */,
 				04F247EC192EE719005875A7 /* more_touch.png in Resources */,
@@ -964,6 +972,14 @@
 				041D4EC3190C138A00C3ED93 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		04F248A819379893005875A7 /* Main_iPhone4inch.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04F248A919379893005875A7 /* Base */,
+			);
+			name = Main_iPhone4inch.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
