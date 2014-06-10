@@ -134,6 +134,8 @@
 
 - (void)viewDidUnload
 {
+    _m_PPPPChannelMgt->StopAll();
+    
     [super viewDidUnload];
 }
 
@@ -200,16 +202,20 @@
     
     if ([[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)]) {
         if ([UIDevice currentDevice].orientation == UIDeviceOrientationPortrait) {
-            //objc_msgSend([UIDevice currentDevice],@selector(setOrientation:),UIInterfaceOrientationLandscapeLeft );
+            //objc_msgSend([UIDevice currentDevice],@selector(setOrientation:),UIInterfaceOrientationPortrait );
             [portrait setHidden:NO];
             [landscape setHidden:YES];
         }
-        else if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) {
-            //objc_msgSend([UIDevice currentDevice], @selector(setOrientation:), UIInterfaceOrientationPortrait);
+        else if ([UIDevice currentDevice].orientation == UIDeviceOrientationLandscapeLeft) {
+            //objc_msgSend([UIDevice currentDevice], @selector(setOrientation:), UIInterfaceOrientationLandscapeLeft);
             [landscape setHidden:NO];
             [portrait setHidden:YES];
         }
-        
+        else if ([UIDevice currentDevice].orientation == UIDeviceOrientationLandscapeRight) {
+            //objc_msgSend([UIDevice currentDevice], @selector(setOrientation:), UIInterfaceOrientationLandscapeRight);
+            [landscape setHidden:NO];
+            [portrait setHidden:YES];
+        }
     }
 }
 
@@ -239,7 +245,7 @@
         [playButton setTitle:@"Play" forState:UIControlStateNormal];
         isPlaying = NO;
     }
-    
+    _m_PPPPChannelMgt->Stop([_cameraID UTF8String]);
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -377,6 +383,8 @@
     }
 }
 
+#define USE_DIDO_METHOD
+
 - (IBAction)feed:(id)sender {
 //    if (isFeeding) {
 //        _m_PPPPChannelMgt->PTZ_Control([_cameraID UTF8String], CMD_PTZ_LEFT_RIGHT_STOP);
@@ -387,11 +395,6 @@
 //        isFeeding = YES;
 //    }
     
-    timer = [NSTimer scheduledTimerWithTimeInterval:0.8f
-                                                          target:self
-                                                        selector:@selector(activateFeed:)
-                                                        userInfo:nil
-                                                         repeats:YES];
 //    for(int i = 0; i < 38; i++) {
 //        _m_PPPPChannelMgt->PTZ_Control([_cameraID UTF8String], CMD_PTZ_LEFT);
 //    }
@@ -406,31 +409,56 @@
 //                                           selector:@selector(activateFeed:)
 //                                           userInfo:nil
 //                                            repeats:NO];
-//    
+//
+
+#ifndef USE_DIDO_METHOD
+    _m_PPPPChannelMgt->PTZ_Control([_cameraID UTF8String], CMD_PTZ_UP_DOWN);
+    timer = [NSTimer scheduledTimerWithTimeInterval:0.8f
+                                             target:self
+                                           selector:@selector(activateFeed:)
+                                           userInfo:nil
+                                            repeats:NO];
+#else
+    int numOfCycles = feedAmount-1;
+    _m_PPPPChannelMgt->PTZ_Control([_cameraID UTF8String], 94);
+    timer = [NSTimer scheduledTimerWithTimeInterval:1.0f*numOfCycles
+                                             target:self
+                                           selector:@selector(activateFeed:)
+                                           userInfo:nil
+                                            repeats:NO];
+#endif
+    
+    isFeeding = YES;
     [feedButton setAlpha:0.0f];
     [feedButton_landscape setAlpha:0.0f];
 }
 
 - (void)activateFeed:(NSTimer *)calledTimer {
-    static int counter = 0;
-    _m_PPPPChannelMgt->PTZ_Control([_cameraID UTF8String], CMD_PTZ_DOWN);
-    if (++counter == 18) {
-        if (timer != nil) {
-            [timer invalidate];
-            timer = nil;
-        }
-        //_m_PPPPChannelMgt->PTZ_Control([_cameraID UTF8String], CMD_PTZ_RIGHT_STOP);
-        [feedButton setAlpha:1.0f];
-        [feedButton_landscape setAlpha:1.0f];
-        counter = 0;
-    }
-    NSLog(@"%d", counter);
+    //static int counter = 0;
+#ifndef USE_DIDO_METHOD
+    _m_PPPPChannelMgt->PTZ_Control([_cameraID UTF8String], CMD_PTZ_UP_DOWN_STOP);
+#else
+    _m_PPPPChannelMgt->PTZ_Control([_cameraID UTF8String], 95);
+#endif
+//    if (++counter == 18) {
+//        if (timer != nil) {
+//            [timer invalidate];
+//            timer = nil;
+//        }
+//        //_m_PPPPChannelMgt->PTZ_Control([_cameraID UTF8String], CMD_PTZ_RIGHT_STOP);
+//        [feedButton setAlpha:1.0f];
+//        [feedButton_landscape setAlpha:1.0f];
+//        counter = 0;
+//    }
+//    NSLog(@"%d", counter);
 //    if (timer != nil) {
 //        [timer invalidate];
 //        timer = nil;
 //    }
 //    _m_PPPPChannelMgt->PTZ_Control([_cameraID UTF8String], CMD_PTZ_LEFT_RIGHT_STOP);
-//    [feedButton setAlpha:1.0f];
+    isFeeding = NO;
+    [feedButton setAlpha:1.0f];
+    [feedButton_landscape setAlpha:1.0f];
 }
 
 - (IBAction)mic:(id)sender {

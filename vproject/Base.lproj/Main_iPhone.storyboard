@@ -16,11 +16,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back_image.png" translatesAutoresizingMaskIntoConstraints="NO" id="WnC-Qz-SFJ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="back_image.png" translatesAutoresizingMaskIntoConstraints="NO" id="WnC-Qz-SFJ">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qgk-Sv-4YC">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qgk-Sv-4YC">
                                 <rect key="frame" x="24" y="225" width="272" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="imagebutton_002.png">
@@ -30,19 +30,19 @@
                                     <segue destination="GUA-lk-XTm" kind="modal" modalTransitionStyle="coverVertical" id="9sj-TC-evc"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="mysinglepet@gmail.com" borderStyle="roundedRect" placeholder="Email Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fxx-ya-1yI">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="mysinglepet@gmail.com" borderStyle="roundedRect" placeholder="Email Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fxx-ya-1yI">
                                 <rect key="frame" x="24" y="115" width="272" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fd5-vQ-Q7G">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fd5-vQ-Q7G">
                                 <rect key="frame" x="24" y="155" width="272" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <navigationBar alpha="0.80000001192092896" contentMode="scaleToFill" ambiguous="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lUb-oh-BMw">
+                            <navigationBar alpha="0.80000001192092896" contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lUb-oh-BMw">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
@@ -60,17 +60,6 @@
                             </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="WnC-Qz-SFJ" secondAttribute="trailing" id="AXp-xR-ucc"/>
-                            <constraint firstItem="WnC-Qz-SFJ" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="H33-H0-gvN"/>
-                            <constraint firstItem="WnC-Qz-SFJ" firstAttribute="leading" secondItem="lUb-oh-BMw" secondAttribute="leading" id="IKZ-GV-9C4"/>
-                            <constraint firstItem="WnC-Qz-SFJ" firstAttribute="centerX" secondItem="qgk-Sv-4YC" secondAttribute="centerX" id="MlG-v7-rCx"/>
-                            <constraint firstItem="WnC-Qz-SFJ" firstAttribute="centerX" secondItem="Fxx-ya-1yI" secondAttribute="centerX" id="Np0-Y6-2PM"/>
-                            <constraint firstAttribute="bottom" secondItem="WnC-Qz-SFJ" secondAttribute="bottom" id="aCG-qO-l3y"/>
-                            <constraint firstItem="WnC-Qz-SFJ" firstAttribute="centerX" secondItem="fd5-vQ-Q7G" secondAttribute="centerX" id="cgG-UI-A8D"/>
-                            <constraint firstItem="WnC-Qz-SFJ" firstAttribute="trailing" secondItem="lUb-oh-BMw" secondAttribute="trailing" id="jeG-C5-fat"/>
-                            <constraint firstItem="WnC-Qz-SFJ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="qah-CU-Kln"/>
-                        </constraints>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
@@ -89,10 +78,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dZ6-HL-a9v">
-                            <rect key="frame" x="0.0" y="207" width="320" height="44"/>
+                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dZ6-HL-a9v">
+                            <rect key="frame" x="0.0" y="207" width="320" height="50"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Add Camera">
+                            <state key="normal" image="Add Camera.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -1124,6 +1113,7 @@ the name later</string>
         <image name="003.png" width="52" height="57"/>
         <image name="003_image.png" width="580" height="316"/>
         <image name="005_image.png" width="152" height="202"/>
+        <image name="Add Camera.png" width="192" height="40"/>
         <image name="arrow.png" width="379" height="32"/>
         <image name="back_image.png" width="640" height="1136"/>
         <image name="back_on.png" width="64" height="64"/>

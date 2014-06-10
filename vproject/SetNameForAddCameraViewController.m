@@ -39,6 +39,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
 -(IBAction)checkNameForNextStep:(id)sender {
     if ( name.text.length > 0 ) {
         // must check duplicate key.

@@ -32,6 +32,10 @@
     return self;
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -92,6 +96,8 @@
 
 - (void)viewDidUnload
 {
+    _m_PPPPChannelMgt->StopAll();
+    
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"sendName" object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"sendUID" object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"addNewCamera" object:nil];
