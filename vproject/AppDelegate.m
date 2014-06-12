@@ -13,7 +13,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    [[UINavigationBar appearance] setBarTintColor:[UIColor orangeColor]];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:243.0f/255.0f green:140.0f/255.0f blue:75.0f/255.0f alpha:1.0f]];
     [[UINavigationBar appearance] setAlpha:0.8];
     NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont
                                                                            fontWithName:@"Helvetica Neue" size:17], NSFontAttributeName,
