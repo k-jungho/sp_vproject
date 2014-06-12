@@ -14,7 +14,7 @@
 
 @implementation SetNameForAddCameraViewController
 
-@synthesize scrollView, name;
+@synthesize scrollView, name, next;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -59,6 +59,16 @@
                               initWithTitle:@"Cam name is empty" message:@"Please input cam name" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alert show];
     }
+}
+
+- (IBAction)next_pressed:(id)sender {
+    UIImage *next_p = [UIImage imageNamed:@"next_on.png"];
+    [next setImage:next_p forState:UIControlStateNormal];
+}
+
+- (IBAction)next_up:(id)sender {
+    UIImage *next_n = [UIImage imageNamed:@"next.png"];
+    [next setImage:next_n forState:UIControlStateNormal];
 }
 
 /*

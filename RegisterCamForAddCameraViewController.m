@@ -15,7 +15,7 @@
 
 @implementation RegisterCamForAddCameraViewController
 
-@synthesize uid, isCancelRequested;
+@synthesize uid, isCancelRequested, back, next;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -109,6 +109,26 @@
         }
         isCancelRequested = NO;
     }
+}
+
+- (IBAction)back_pressed:(id)sender {
+    UIImage *back_p = [UIImage imageNamed:@"back_on.png"];
+    [back setImage:back_p forState:UIControlStateNormal];
+}
+
+- (IBAction)back_up:(id)sender {
+    UIImage *back_n = [UIImage imageNamed:@"back.png"];
+    [back setImage:back_n forState:UIControlStateNormal];
+}
+
+- (IBAction)next_pressed:(id)sender {
+    UIImage *next_p = [UIImage imageNamed:@"next_on.png"];
+    [next setImage:next_p forState:UIControlStateNormal];
+}
+
+- (IBAction)next_up:(id)sender {
+    UIImage *next_n = [UIImage imageNamed:@"next.png"];
+    [next setImage:next_n forState:UIControlStateNormal];
 }
 
 /*

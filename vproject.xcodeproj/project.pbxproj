@@ -104,6 +104,9 @@
 		048FF76D191C053000E7AC3B /* picture.png in Resources */ = {isa = PBXBuildFile; fileRef = 048FF769191C053000E7AC3B /* picture.png */; };
 		048FF76F191C0B7600E7AC3B /* imagebutton_002.png in Resources */ = {isa = PBXBuildFile; fileRef = 048FF76E191C0B7600E7AC3B /* imagebutton_002.png */; };
 		048FF772191DF7DA00E7AC3B /* CameraInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 048FF771191DF7DA00E7AC3B /* CameraInfo.m */; };
+		049593E51949E229009B92EC /* imagebutton_003.png in Resources */ = {isa = PBXBuildFile; fileRef = 049593E41949E229009B92EC /* imagebutton_003.png */; };
+		049594441949EC87009B92EC /* next_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 049594431949EC87009B92EC /* next_on.png */; };
+		049594461949ED7E009B92EC /* box.png in Resources */ = {isa = PBXBuildFile; fileRef = 049594451949ED7E009B92EC /* box.png */; };
 		04EDE24E1937A42B00FB10ED /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04EDE24D1937A42B00FB10ED /* Default-568h@2x.png */; };
 		04F247CA192EE1C4005875A7 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F247C9192EE1C4005875A7 /* camera.png */; };
 		04F247D1192EE355005875A7 /* mic_equ_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F247CB192EE355005875A7 /* mic_equ_off.png */; };
@@ -322,6 +325,9 @@
 		048FF76E191C0B7600E7AC3B /* imagebutton_002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imagebutton_002.png; sourceTree = "<group>"; };
 		048FF770191DF7DA00E7AC3B /* CameraInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraInfo.h; sourceTree = "<group>"; };
 		048FF771191DF7DA00E7AC3B /* CameraInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraInfo.m; sourceTree = "<group>"; };
+		049593E41949E229009B92EC /* imagebutton_003.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imagebutton_003.png; sourceTree = "<group>"; };
+		049594431949EC87009B92EC /* next_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next_on.png; sourceTree = "<group>"; };
+		049594451949ED7E009B92EC /* box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box.png; sourceTree = "<group>"; };
 		04EDE24D1937A42B00FB10ED /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		04F247C9192EE1C4005875A7 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
 		04F247CB192EE355005875A7 /* mic_equ_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mic_equ_off.png; sourceTree = "<group>"; };
@@ -685,6 +691,9 @@
 		048FF756191BD59500E7AC3B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				049594451949ED7E009B92EC /* box.png */,
+				049594431949EC87009B92EC /* next_on.png */,
+				049593E41949E229009B92EC /* imagebutton_003.png */,
 				04EDE24D1937A42B00FB10ED /* Default-568h@2x.png */,
 				04F2485C1930DE23005875A7 /* bg_control_feed.png */,
 				04F2485D1930DE23005875A7 /* bg_feed.png */,
@@ -809,6 +818,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				049594461949ED7E009B92EC /* box.png in Resources */,
 				0407F4E8191937A900D38AEC /* Shader.vsh in Resources */,
 				048FF759191BD59500E7AC3B /* 001_image.png in Resources */,
 				04F2485E1930DE23005875A7 /* bg_control_feed.png in Resources */,
@@ -830,9 +840,11 @@
 				041D4EAE190C138A00C3ED93 /* Main_iPad.storyboard in Resources */,
 				04F2485F1930DE23005875A7 /* bg_feed.png in Resources */,
 				04F247EC192EE719005875A7 /* more_touch.png in Resources */,
+				049593E51949E229009B92EC /* imagebutton_003.png in Resources */,
 				048FF760191C012200E7AC3B /* back_on.png in Resources */,
 				04F247F1192EED8C005875A7 /* rsz_arrow_left_off.png in Resources */,
 				04F247D5192EE355005875A7 /* volume_toggle_off.png in Resources */,
+				049594441949EC87009B92EC /* next_on.png in Resources */,
 				04F247DA192EE5B9005875A7 /* mic_on.png in Resources */,
 				04F247D3192EE355005875A7 /* volume_off.png in Resources */,
 				041D4EB3190C138A00C3ED93 /* Images.xcassets in Resources */,

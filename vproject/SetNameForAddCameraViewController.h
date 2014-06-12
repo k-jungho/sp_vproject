@@ -8,11 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SetNameForAddCameraViewController : UIViewController
+@interface SetNameForAddCameraViewController : UIViewController {
+    IBOutlet UIButton *next;
+}
 
 @property (nonatomic, retain) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, retain) IBOutlet UITextField *name;
+@property (nonatomic, retain) IBOutlet UIButton *next;
 
--(IBAction)checkNameForNextStep:(id)sender;
+- (IBAction)checkNameForNextStep:(id)sender;
+- (IBAction)next_pressed:(id)sender;
+- (IBAction)next_up:(id)sender;
 
 @end

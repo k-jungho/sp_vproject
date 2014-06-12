@@ -545,14 +545,14 @@
                 _m_PPPPChannelMgt->StopPPPPLivestream([_cameraID UTF8String]);
                 return;
             }
-            _m_PPPPChannelMgt->StartPPPPAudio([_cameraID UTF8String]);
-            [playButton setTitle:@"Stop" forState:UIControlStateNormal];
-            UIImage *toggle_on = [UIImage imageNamed:@"volume_toggle_on.png"];
-            [speakerButton setImage:toggle_on forState:UIControlStateNormal];
-            UIImage *volume_on = [UIImage imageNamed:@"volume_on.png"];
-            [speakerImage setImage:volume_on];
-            [speakerImage_landscape setImage:volume_on];
-            isSpeakerOn = YES;
+//            _m_PPPPChannelMgt->StartPPPPAudio([_cameraID UTF8String]);
+//            [playButton setTitle:@"Stop" forState:UIControlStateNormal];
+//            UIImage *toggle_on = [UIImage imageNamed:@"volume_toggle_on.png"];
+//            [speakerButton setImage:toggle_on forState:UIControlStateNormal];
+//            UIImage *volume_on = [UIImage imageNamed:@"volume_on.png"];
+//            [speakerImage setImage:volume_on];
+//            [speakerImage_landscape setImage:volume_on];
+//            isSpeakerOn = YES;
         }
         isPlaying = YES;
         [playButton setAlpha:0.0f];

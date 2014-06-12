@@ -14,6 +14,8 @@
 
 @implementation LoginViewController
 
+@synthesize login;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -50,6 +52,16 @@
 
 - (IBAction)back:(id)sender {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)login_pressed:(id)sender {
+    UIImage *login_p = [UIImage imageNamed:@"imagebutton_003.png"];
+    [login setImage:login_p forState:UIControlStateNormal];
+}
+
+- (IBAction)login_up:(id)sender {
+    UIImage *login_normal = [UIImage imageNamed:@"imagebutton_002.png"];
+    [login setImage:login_normal forState:UIControlStateNormal];
 }
 
 -(BOOL)shouldAutorotate

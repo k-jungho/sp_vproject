@@ -8,10 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LoginViewController : UIViewController <UIBarPositioningDelegate>
+@interface LoginViewController : UIViewController <UIBarPositioningDelegate> {
+    IBOutlet UIButton *login;
+}
 
 @property (nonatomic, retain) IBOutlet UINavigationBar *navigationBar;
+@property (nonatomic, retain) IBOutlet UIButton *login;
 
 - (IBAction)back:(id)sender;
+- (IBAction)login_pressed:(id)sender;
+- (IBAction)login_up:(id)sender;
 
 @end
