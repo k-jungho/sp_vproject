@@ -147,7 +147,7 @@
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NxS-ZI-Acg">
                                         <rect key="frame" x="20" y="0.0" width="320" height="175"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.95294117647058818" green="0.5490196078431373" blue="0.29411764705882354" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.95294117649999999" green="0.60784313729999995" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="001_image.png" translatesAutoresizingMaskIntoConstraints="NO" id="h3t-8K-sjM">
                                         <rect key="frame" x="42" y="15" width="224" height="160"/>
@@ -269,7 +269,7 @@ the name later</string>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="52H-Ij-WWp">
                                         <rect key="frame" x="20" y="0.0" width="320" height="175"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.95294117647058818" green="0.5490196078431373" blue="0.29411764705882354" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.95294117649999999" green="0.60784313729999995" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="003_image.png" translatesAutoresizingMaskIntoConstraints="NO" id="Cgd-XL-bUz">
                                         <rect key="frame" x="20" y="17" width="290" height="158"/>
@@ -490,7 +490,7 @@ the name later</string>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lJy-eT-3rw">
                                         <rect key="frame" x="20" y="0.0" width="320" height="175"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.95294117649999999" green="0.54901960780000003" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.95294117647058818" green="0.60784313725490191" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="005_image.png" translatesAutoresizingMaskIntoConstraints="NO" id="U9C-Hz-O9u">
                                         <rect key="frame" x="142" y="37" width="76" height="101"/>
